@@ -9,6 +9,9 @@ export interface GarageVehicle {
   name: string;
   image: string;
   description?: string;
+  bought?: number;
+  sold?: number;
+  status: "sold" | "current";
 }
 
 export interface Subscriber {
