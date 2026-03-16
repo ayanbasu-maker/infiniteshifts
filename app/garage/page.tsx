@@ -17,7 +17,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2007 Ford Mustang GT",
-    image: "/garage/ford-mustang-gt.jpg",
+    image: "/garage/fordmustang.png",
     status: "sold",
     bought: 26000,
     sold: 7500,
@@ -25,7 +25,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2009 BMW 335i",
-    image: "/garage/bmw-335i.jpg",
+    image: "/garage/bmw335.png",
     status: "sold",
     bought: 14500,
     sold: 15000,
@@ -33,7 +33,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2008 Lexus IS-F",
-    image: "/garage/lexus-isf.jpg",
+    image: "/garage/lexusisf.png",
     status: "sold",
     bought: 32000,
     sold: 29000,
@@ -41,7 +41,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2009 BMW E60 M5",
-    image: "/garage/bmw-e60-m5.jpg",
+    image: "/garage/bmwm5.png",
     status: "sold",
     bought: 36000,
     sold: 32000,
