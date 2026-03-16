@@ -66,6 +66,25 @@ export async function getPopularVideos(count: number = 6): Promise<Video[]> {
   return fetchVideos("viewCount", count);
 }
 
+export async function getChannelViewCount(): Promise<string> {
+  if (!API_KEY || API_KEY === "your_api_key_here") return "";
+
+  try {
+    const channelId = await getChannelId();
+    const res = await fetch(
+      `${YOUTUBE_API_BASE}/channels?part=statistics&id=${channelId}&key=${API_KEY}`,
+      { next: { revalidate: 86400 } }
+    );
+    const data = await res.json();
+    const views = Number(data.items?.[0]?.statistics?.viewCount ?? 0);
+    if (views >= 1_000_000) return `${Math.floor(views / 1_000_000)}M+`;
+    if (views >= 1_000) return `${Math.floor(views / 1_000)}K+`;
+    return `${views}`;
+  } catch {
+    return "";
+  }
+}
+
 function getPlaceholderVideos(count: number): Video[] {
   return Array.from({ length: count }, (_, i) => ({
     id: `placeholder-${i}`,

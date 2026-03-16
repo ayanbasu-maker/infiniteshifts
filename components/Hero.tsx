@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function Hero({ viewCount }: { viewCount?: string }) {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-white via-neutral-900 to-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,169,14,0.1)_0%,_transparent_70%)]" />
@@ -17,6 +17,11 @@ export default function Hero() {
         >
           Watch on YouTube
         </a>
+        {viewCount && (
+          <p className="mt-4 text-sm text-neutral-400 tracking-wide">
+            <span className="font-semibold text-foreground">{viewCount}</span> views and counting
+          </p>
+        )}
       </div>
     </section>
   );
