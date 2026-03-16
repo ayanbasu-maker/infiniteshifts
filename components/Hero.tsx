@@ -7,7 +7,7 @@ export default function Hero() {
           INFINITE <span className="text-brand-gold">SHIFTS</span>
         </h1>
         <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-8">
-          Cars, builds, and everything automotive. Follow the journey on YouTube.
+          Dream cars don&apos;t have to cost a fortune. I find the coolest cars money can buy — at prices most people overlook.
         </p>
         <a
           href="https://www.youtube.com/@infiniteshifts1"

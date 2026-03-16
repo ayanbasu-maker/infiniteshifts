@@ -36,9 +36,9 @@ export default function EmailSignup() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-r from-neutral-900 via-[#1a1508] to-neutral-900">
       <div className="max-w-2xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Stay in the Loop</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Get the Best Car Deals First</h2>
         <p className="text-neutral-400 mb-8">
-          Get notified about new videos, builds, and updates. No spam, ever.
+          I share depreciation finds, underrated cars, and real ownership stories — straight to your inbox. No spam, ever.
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
           <input

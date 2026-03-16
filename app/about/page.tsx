@@ -14,19 +14,22 @@ export default function AboutPage() {
 
         <div className="space-y-6 text-neutral-300 text-lg leading-relaxed">
           <p>
-            Welcome to Infinite Shifts — a passion project born from a love of
-            cars, wrenching, and the open road.
+            Welcome to Infinite Shifts — a channel about one simple idea: you
+            can drive incredible cars without spending incredible money.
           </p>
           <p>
-            This channel is all about documenting builds, sharing automotive
-            knowledge, and connecting with people who live and breathe cars. From
-            garage projects to spirited drives, every video is a new chapter in
-            the journey.
+            I&apos;ve always been obsessed with cars. Not just the exotic stuff you
+            see on posters — but the hidden gems. The cars that were once out of
+            reach, depreciated hard, and are now sitting at prices that make zero
+            sense for what you&apos;re getting.
           </p>
           <p>
-            Whether you&apos;re a seasoned gearhead or just getting into the car
-            world, there&apos;s something here for you. Thanks for being part of the
-            ride.
+            Every video is part of a bigger story — my own car journey. Reviews,
+            real ownership experiences, what I&apos;d buy, what I&apos;d avoid, and which
+            cars I think are the best value plays on the market right now.
+          </p>
+          <p>
+            If you love cars and love a good deal, you&apos;re in the right place.
           </p>
         </div>
 
