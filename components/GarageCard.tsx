@@ -10,7 +10,7 @@ export default function GarageCard({ vehicle }: { vehicle: GarageVehicle }) {
             src={vehicle.image}
             alt={vehicle.name}
             fill
-            className="object-cover"
+            className="object-contain"
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
