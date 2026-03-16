@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 export default function EmailSignup() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -15,13 +17,15 @@ export default function EmailSignup() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ firstName, lastName, email }),
       });
       const data = await res.json();
 
       if (res.ok) {
         setStatus("success");
         setMessage("You're in! Thanks for subscribing.");
+        setFirstName("");
+        setLastName("");
         setEmail("");
       } else {
         setStatus("error");
@@ -40,22 +44,42 @@ export default function EmailSignup() {
         <p className="text-neutral-400 mb-8">
           I share depreciation finds, underrated cars, and real ownership stories — straight to your inbox. No spam, ever.
         </p>
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            required
-            placeholder="your@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
-          />
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="bg-brand-gold hover:bg-brand-gold-hover text-black disabled:opacity-50 text-white font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
-          >
-            {status === "loading" ? "Subscribing..." : "Subscribe"}
-          </button>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="text"
+              required
+              placeholder="First name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+            />
+            <input
+              type="text"
+              required
+              placeholder="Last name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+            />
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              required
+              placeholder="your@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+            />
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="bg-brand-gold hover:bg-brand-gold-hover text-black disabled:opacity-50 font-semibold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+            >
+              {status === "loading" ? "Subscribing..." : "Subscribe"}
+            </button>
+          </div>
         </form>
         {message && (
           <p className={`mt-4 text-sm ${status === "success" ? "text-green-400" : "text-red-400"}`}>

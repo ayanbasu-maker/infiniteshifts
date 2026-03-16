@@ -28,6 +28,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const email = body.email?.trim().toLowerCase();
+    const firstName = body.firstName?.trim() || "";
+    const lastName = body.lastName?.trim() || "";
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
@@ -67,7 +69,7 @@ export async function POST(request: NextRequest) {
       range: "Sheet1!A:B",
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[email, new Date().toISOString()]],
+        values: [[firstName, lastName, email, new Date().toISOString()]],
       },
     });
 
