@@ -38,7 +38,7 @@ export default function EmailSignup() {
   }
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-r from-neutral-900 via-[#1a1508] to-neutral-900">
+    <section className="py-16 md:py-24 bg-gradient-to-r from-neutral-900 via-[#fdf6e3] to-neutral-900">
       <div className="max-w-2xl mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Get the Best Car Deals First</h2>
         <p className="text-neutral-400 mb-8">
@@ -52,7 +52,7 @@ export default function EmailSignup() {
               placeholder="First name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-foreground placeholder:text-neutral-400 focus:outline-none focus:border-brand-gold transition-colors"
             />
             <input
               type="text"
@@ -60,7 +60,7 @@ export default function EmailSignup() {
               placeholder="Last name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-foreground placeholder:text-neutral-400 focus:outline-none focus:border-brand-gold transition-colors"
             />
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
@@ -70,7 +70,7 @@ export default function EmailSignup() {
               placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white placeholder:text-neutral-500 focus:outline-none focus:border-brand-gold transition-colors"
+              className="flex-1 px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-foreground placeholder:text-neutral-400 focus:outline-none focus:border-brand-gold transition-colors"
             />
             <button
               type="submit"
@@ -82,7 +82,7 @@ export default function EmailSignup() {
           </div>
         </form>
         {message && (
-          <p className={`mt-4 text-sm ${status === "success" ? "text-green-400" : "text-red-400"}`}>
+          <p className={`mt-4 text-sm ${status === "success" ? "text-green-600" : "text-red-600"}`}>
             {message}
           </p>
         )}

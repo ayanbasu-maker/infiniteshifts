@@ -65,7 +65,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2016 Porsche Macan S",
-    image: "/garage/porsche-macan-s.jpg",
+    image: "/garage/macan.png",
     status: "sold",
     bought: 36000,
     sold: 19000,
@@ -73,7 +73,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2003 BMW E39 M5",
-    image: "/garage/bmw-e39-m5.jpg",
+    image: "/garage/e39m5.png",
     status: "sold",
     bought: 29000,
     sold: 25000,
@@ -81,14 +81,14 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2013 Porsche 911",
-    image: "/garage/porsche-911.jpg",
+    image: "/garage/porsche911.png",
     status: "current",
     bought: 0,
     description: "Still in the garage. Fantastic car. Will I sell it? Honestly not sure yet.",
   },
   {
     name: "2021 Tesla Model S",
-    image: "/garage/tesla-model-s.jpg",
+    image: "/garage/teslamodelsplaid.png",
     status: "sold",
     bought: 71000,
     sold: 53000,
@@ -96,14 +96,14 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2025 Audi Q3",
-    image: "/garage/audi-q3.jpg",
+    image: "/garage/audiq3.png",
     status: "current",
     bought: 0,
     description: "The family car. Fully loaded, great quality, lots of features. Nothing flashy but does everything well. Keeping this one for a while.",
   },
   {
     name: "2014 Mercedes C63 AMG",
-    image: "/garage/mercedes-c63.jpg",
+    image: "/garage/c63amg.png",
     status: "current",
     bought: 0,
     description: "Recent acquisition. So far so good — early days but very promising.",
