@@ -4,7 +4,7 @@ import { GarageVehicle } from "@/lib/types";
 export default function GarageCard({ vehicle }: { vehicle: GarageVehicle }) {
   return (
     <div className="bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-brand-gold/50 transition-all duration-300 flex flex-col">
-      <div className="relative aspect-video bg-neutral-800">
+      <div className="relative aspect-video bg-neutral-900">
         {vehicle.image ? (
           <Image
             src={vehicle.image}
