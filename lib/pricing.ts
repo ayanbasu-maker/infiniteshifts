@@ -350,8 +350,8 @@ function getMonthCount(tf: Timeframe): number {
 }
 
 // Data source explanation shown to users
-const DATA_SOURCE_ESTIMATED = "Estimate based on analysis of listing data from CarGurus, Autotrader, Cars.com, dealer inventories, and auction results (Bring a Trailer, Cars & Bids). Pricing model factors in original MSRP, standard depreciation curves, market demand, and seasonal trends.";
-const DATA_SOURCE_CURATED = "Based on aggregated pricing data from CarGurus, Autotrader, Cars.com, Bring a Trailer, Cars & Bids, dealer listings, and private sale records.";
+const DATA_SOURCE_ESTIMATED = "Estimated using our pricing model based on original MSRP, standard depreciation curves, vehicle segment, and seasonal market patterns. These are approximate values — actual prices vary by condition, mileage, location, and market demand.";
+const DATA_SOURCE_CURATED = "Based on curated pricing data combined with our depreciation and market trend model. These are approximate values — actual prices vary by condition, mileage, location, and market demand.";
 
 // ── Confidence logic ────────────────────────────────────────────────────
 function getEstimatedConfidence(

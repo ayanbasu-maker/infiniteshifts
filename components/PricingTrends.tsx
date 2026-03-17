@@ -183,9 +183,9 @@ export default function PricingTrends() {
 
       {/* Disclaimer */}
       <p className="text-xs text-neutral-400 pt-4 border-t border-neutral-800">
-        Pricing data is based on publicly available market information and is intended for general reference only.
-        Actual prices may vary based on condition, mileage, location, and other factors.
-        Projections are estimates based on historical trends and are not financial advice.
+        Pricing is estimated using our algorithmic model and is intended for general reference only.
+        Actual market prices vary based on condition, mileage, location, and demand.
+        Projections are estimates based on depreciation trends and are not financial advice.
       </p>
     </div>
   );
