@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Subscribe to form via Kit V3 API
+    // Subscribe to form via Kit V3 API (state: "active" skips confirmation email)
     const res = await fetch(`${KIT_API_URL}/forms/${formId}/subscribe`, {
       method: "POST",
       headers: {
@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
         api_key: apiKey,
         email,
         first_name: firstName,
+        state: "active",
         fields: {
           last_name: lastName,
         },
