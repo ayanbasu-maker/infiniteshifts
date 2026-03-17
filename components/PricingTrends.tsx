@@ -159,21 +159,13 @@ export default function PricingTrends() {
       {/* How it works section */}
       <div className="bg-neutral-900/50 rounded-lg border border-neutral-800 p-6">
         <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-400 mb-4">
-          How Our Pricing Works
+          How We Estimate Pricing
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-neutral-400">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-400">
           <div>
-            <p className="font-semibold text-foreground mb-1">Data Sources</p>
+            <p className="font-semibold text-foreground mb-1">Our Model</p>
             <p>
-              We analyze pricing from CarGurus, Autotrader, Cars.com, Bring a Trailer, Cars &amp; Bids,
-              dealer inventory feeds, Craigslist, Facebook Marketplace, and private auction records
-              to build a comprehensive picture of real market values.
-            </p>
-          </div>
-          <div>
-            <p className="font-semibold text-foreground mb-1">How We Estimate</p>
-            <p>
-              Our model factors in original MSRP, age-based depreciation curves, production volume,
+              Our pricing model factors in original MSRP, age-based depreciation curves, production volume,
               market demand, collector/enthusiast premiums, and seasonal buying patterns to calculate
               current values and project future trends.
             </p>
