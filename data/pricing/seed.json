@@ -1,0 +1,802 @@
+{
+  "2009-BMW-335i": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 15200, "listingCount": 340 },
+      { "date": "2025-05", "avgPrice": 14800, "listingCount": 325 },
+      { "date": "2025-06", "avgPrice": 14500, "listingCount": 310 },
+      { "date": "2025-07", "avgPrice": 14200, "listingCount": 298 },
+      { "date": "2025-08", "avgPrice": 13900, "listingCount": 285 },
+      { "date": "2025-09", "avgPrice": 13700, "listingCount": 270 },
+      { "date": "2025-10", "avgPrice": 13500, "listingCount": 260 },
+      { "date": "2025-11", "avgPrice": 13200, "listingCount": 245 },
+      { "date": "2025-12", "avgPrice": 13000, "listingCount": 238 },
+      { "date": "2026-01", "avgPrice": 12800, "listingCount": 225 },
+      { "date": "2026-02", "avgPrice": 12600, "listingCount": 218 },
+      { "date": "2026-03", "avgPrice": 12400, "listingCount": 210 }
+    ]
+  },
+  "2008-Lexus-IS F": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 32000, "listingCount": 85 },
+      { "date": "2025-05", "avgPrice": 32500, "listingCount": 80 },
+      { "date": "2025-06", "avgPrice": 33200, "listingCount": 78 },
+      { "date": "2025-07", "avgPrice": 33800, "listingCount": 72 },
+      { "date": "2025-08", "avgPrice": 34500, "listingCount": 68 },
+      { "date": "2025-09", "avgPrice": 35000, "listingCount": 65 },
+      { "date": "2025-10", "avgPrice": 35800, "listingCount": 60 },
+      { "date": "2025-11", "avgPrice": 36200, "listingCount": 58 },
+      { "date": "2025-12", "avgPrice": 37000, "listingCount": 55 },
+      { "date": "2026-01", "avgPrice": 37500, "listingCount": 52 },
+      { "date": "2026-02", "avgPrice": 38200, "listingCount": 48 },
+      { "date": "2026-03", "avgPrice": 38800, "listingCount": 45 }
+    ]
+  },
+  "2003-BMW-M5": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 22000, "listingCount": 42 },
+      { "date": "2025-05", "avgPrice": 22500, "listingCount": 40 },
+      { "date": "2025-06", "avgPrice": 23000, "listingCount": 38 },
+      { "date": "2025-07", "avgPrice": 23500, "listingCount": 36 },
+      { "date": "2025-08", "avgPrice": 24200, "listingCount": 34 },
+      { "date": "2025-09", "avgPrice": 24800, "listingCount": 32 },
+      { "date": "2025-10", "avgPrice": 25500, "listingCount": 30 },
+      { "date": "2025-11", "avgPrice": 26000, "listingCount": 28 },
+      { "date": "2025-12", "avgPrice": 26800, "listingCount": 26 },
+      { "date": "2026-01", "avgPrice": 27200, "listingCount": 25 },
+      { "date": "2026-02", "avgPrice": 27800, "listingCount": 23 },
+      { "date": "2026-03", "avgPrice": 28500, "listingCount": 22 }
+    ]
+  },
+  "2009-BMW-M5": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 55 },
+      { "date": "2025-05", "avgPrice": 28500, "listingCount": 52 },
+      { "date": "2025-06", "avgPrice": 29200, "listingCount": 50 },
+      { "date": "2025-07", "avgPrice": 29800, "listingCount": 48 },
+      { "date": "2025-08", "avgPrice": 30500, "listingCount": 45 },
+      { "date": "2025-09", "avgPrice": 31000, "listingCount": 42 },
+      { "date": "2025-10", "avgPrice": 31800, "listingCount": 40 },
+      { "date": "2025-11", "avgPrice": 32500, "listingCount": 38 },
+      { "date": "2025-12", "avgPrice": 33000, "listingCount": 36 },
+      { "date": "2026-01", "avgPrice": 33500, "listingCount": 34 },
+      { "date": "2026-02", "avgPrice": 34200, "listingCount": 32 },
+      { "date": "2026-03", "avgPrice": 34800, "listingCount": 30 }
+    ]
+  },
+  "2014-Mercedes-Benz-C63 AMG": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 36000, "listingCount": 120 },
+      { "date": "2025-05", "avgPrice": 35500, "listingCount": 118 },
+      { "date": "2025-06", "avgPrice": 35000, "listingCount": 115 },
+      { "date": "2025-07", "avgPrice": 34500, "listingCount": 110 },
+      { "date": "2025-08", "avgPrice": 34200, "listingCount": 108 },
+      { "date": "2025-09", "avgPrice": 33800, "listingCount": 105 },
+      { "date": "2025-10", "avgPrice": 33500, "listingCount": 102 },
+      { "date": "2025-11", "avgPrice": 33000, "listingCount": 98 },
+      { "date": "2025-12", "avgPrice": 32800, "listingCount": 95 },
+      { "date": "2026-01", "avgPrice": 32500, "listingCount": 92 },
+      { "date": "2026-02", "avgPrice": 32200, "listingCount": 88 },
+      { "date": "2026-03", "avgPrice": 31800, "listingCount": 85 }
+    ]
+  },
+  "2013-Porsche-911": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 68000, "listingCount": 180 },
+      { "date": "2025-05", "avgPrice": 67500, "listingCount": 175 },
+      { "date": "2025-06", "avgPrice": 67000, "listingCount": 170 },
+      { "date": "2025-07", "avgPrice": 66500, "listingCount": 168 },
+      { "date": "2025-08", "avgPrice": 66800, "listingCount": 172 },
+      { "date": "2025-09", "avgPrice": 67200, "listingCount": 178 },
+      { "date": "2025-10", "avgPrice": 67500, "listingCount": 180 },
+      { "date": "2025-11", "avgPrice": 67800, "listingCount": 175 },
+      { "date": "2025-12", "avgPrice": 68000, "listingCount": 170 },
+      { "date": "2026-01", "avgPrice": 68200, "listingCount": 168 },
+      { "date": "2026-02", "avgPrice": 68500, "listingCount": 165 },
+      { "date": "2026-03", "avgPrice": 68800, "listingCount": 162 }
+    ]
+  },
+  "2016-Porsche-Macan": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 38000, "listingCount": 280 },
+      { "date": "2025-05", "avgPrice": 37200, "listingCount": 290 },
+      { "date": "2025-06", "avgPrice": 36500, "listingCount": 300 },
+      { "date": "2025-07", "avgPrice": 35800, "listingCount": 310 },
+      { "date": "2025-08", "avgPrice": 35200, "listingCount": 315 },
+      { "date": "2025-09", "avgPrice": 34500, "listingCount": 320 },
+      { "date": "2025-10", "avgPrice": 34000, "listingCount": 325 },
+      { "date": "2025-11", "avgPrice": 33500, "listingCount": 330 },
+      { "date": "2025-12", "avgPrice": 33000, "listingCount": 335 },
+      { "date": "2026-01", "avgPrice": 32500, "listingCount": 340 },
+      { "date": "2026-02", "avgPrice": 32000, "listingCount": 345 },
+      { "date": "2026-03", "avgPrice": 31500, "listingCount": 348 }
+    ]
+  },
+  "2021-Tesla-Model S": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 52000, "listingCount": 450 },
+      { "date": "2025-05", "avgPrice": 50500, "listingCount": 480 },
+      { "date": "2025-06", "avgPrice": 49000, "listingCount": 510 },
+      { "date": "2025-07", "avgPrice": 48000, "listingCount": 530 },
+      { "date": "2025-08", "avgPrice": 47000, "listingCount": 550 },
+      { "date": "2025-09", "avgPrice": 46000, "listingCount": 560 },
+      { "date": "2025-10", "avgPrice": 45200, "listingCount": 575 },
+      { "date": "2025-11", "avgPrice": 44500, "listingCount": 590 },
+      { "date": "2025-12", "avgPrice": 43800, "listingCount": 600 },
+      { "date": "2026-01", "avgPrice": 43200, "listingCount": 610 },
+      { "date": "2026-02", "avgPrice": 42500, "listingCount": 620 },
+      { "date": "2026-03", "avgPrice": 42000, "listingCount": 625 }
+    ]
+  },
+  "2007-Ford-Mustang GT": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 16500, "listingCount": 380 },
+      { "date": "2025-05", "avgPrice": 16200, "listingCount": 375 },
+      { "date": "2025-06", "avgPrice": 16000, "listingCount": 370 },
+      { "date": "2025-07", "avgPrice": 15800, "listingCount": 365 },
+      { "date": "2025-08", "avgPrice": 15500, "listingCount": 360 },
+      { "date": "2025-09", "avgPrice": 15300, "listingCount": 355 },
+      { "date": "2025-10", "avgPrice": 15100, "listingCount": 350 },
+      { "date": "2025-11", "avgPrice": 15000, "listingCount": 345 },
+      { "date": "2025-12", "avgPrice": 14800, "listingCount": 340 },
+      { "date": "2026-01", "avgPrice": 14600, "listingCount": 335 },
+      { "date": "2026-02", "avgPrice": 14500, "listingCount": 330 },
+      { "date": "2026-03", "avgPrice": 14300, "listingCount": 325 }
+    ]
+  },
+  "2015-BMW-328i": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 18500, "listingCount": 520 },
+      { "date": "2025-05", "avgPrice": 18000, "listingCount": 530 },
+      { "date": "2025-06", "avgPrice": 17500, "listingCount": 540 },
+      { "date": "2025-07", "avgPrice": 17200, "listingCount": 545 },
+      { "date": "2025-08", "avgPrice": 16800, "listingCount": 550 },
+      { "date": "2025-09", "avgPrice": 16500, "listingCount": 555 },
+      { "date": "2025-10", "avgPrice": 16200, "listingCount": 560 },
+      { "date": "2025-11", "avgPrice": 15800, "listingCount": 565 },
+      { "date": "2025-12", "avgPrice": 15500, "listingCount": 570 },
+      { "date": "2026-01", "avgPrice": 15200, "listingCount": 575 },
+      { "date": "2026-02", "avgPrice": 14900, "listingCount": 580 },
+      { "date": "2026-03", "avgPrice": 14600, "listingCount": 585 }
+    ]
+  },
+  "2012-Volkswagen-Passat": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 8500, "listingCount": 420 },
+      { "date": "2025-05", "avgPrice": 8300, "listingCount": 425 },
+      { "date": "2025-06", "avgPrice": 8100, "listingCount": 430 },
+      { "date": "2025-07", "avgPrice": 7900, "listingCount": 435 },
+      { "date": "2025-08", "avgPrice": 7800, "listingCount": 440 },
+      { "date": "2025-09", "avgPrice": 7600, "listingCount": 445 },
+      { "date": "2025-10", "avgPrice": 7500, "listingCount": 448 },
+      { "date": "2025-11", "avgPrice": 7300, "listingCount": 450 },
+      { "date": "2025-12", "avgPrice": 7200, "listingCount": 452 },
+      { "date": "2026-01", "avgPrice": 7000, "listingCount": 455 },
+      { "date": "2026-02", "avgPrice": 6900, "listingCount": 458 },
+      { "date": "2026-03", "avgPrice": 6800, "listingCount": 460 }
+    ]
+  },
+  "1997-Pontiac-Grand Prix": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 4200, "listingCount": 35 },
+      { "date": "2025-05", "avgPrice": 4100, "listingCount": 33 },
+      { "date": "2025-06", "avgPrice": 4000, "listingCount": 30 },
+      { "date": "2025-07", "avgPrice": 3900, "listingCount": 28 },
+      { "date": "2025-08", "avgPrice": 3800, "listingCount": 26 },
+      { "date": "2025-09", "avgPrice": 3700, "listingCount": 25 },
+      { "date": "2025-10", "avgPrice": 3600, "listingCount": 24 },
+      { "date": "2025-11", "avgPrice": 3500, "listingCount": 22 },
+      { "date": "2025-12", "avgPrice": 3400, "listingCount": 20 },
+      { "date": "2026-01", "avgPrice": 3300, "listingCount": 18 },
+      { "date": "2026-02", "avgPrice": 3200, "listingCount": 17 },
+      { "date": "2026-03", "avgPrice": 3100, "listingCount": 15 }
+    ]
+  },
+  "2025-Audi-Q3": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 38500, "listingCount": 150 },
+      { "date": "2025-05", "avgPrice": 38200, "listingCount": 160 },
+      { "date": "2025-06", "avgPrice": 37800, "listingCount": 170 },
+      { "date": "2025-07", "avgPrice": 37500, "listingCount": 180 },
+      { "date": "2025-08", "avgPrice": 37200, "listingCount": 190 },
+      { "date": "2025-09", "avgPrice": 37000, "listingCount": 195 },
+      { "date": "2025-10", "avgPrice": 36800, "listingCount": 200 },
+      { "date": "2025-11", "avgPrice": 36500, "listingCount": 210 },
+      { "date": "2025-12", "avgPrice": 36200, "listingCount": 215 },
+      { "date": "2026-01", "avgPrice": 36000, "listingCount": 220 },
+      { "date": "2026-02", "avgPrice": 35800, "listingCount": 225 },
+      { "date": "2026-03", "avgPrice": 35500, "listingCount": 230 }
+    ]
+  },
+  "2020-Toyota-Supra": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 42000, "listingCount": 95 },
+      { "date": "2025-05", "avgPrice": 41500, "listingCount": 100 },
+      { "date": "2025-06", "avgPrice": 41000, "listingCount": 105 },
+      { "date": "2025-07", "avgPrice": 40500, "listingCount": 108 },
+      { "date": "2025-08", "avgPrice": 40000, "listingCount": 112 },
+      { "date": "2025-09", "avgPrice": 39800, "listingCount": 115 },
+      { "date": "2025-10", "avgPrice": 39500, "listingCount": 118 },
+      { "date": "2025-11", "avgPrice": 39200, "listingCount": 120 },
+      { "date": "2025-12", "avgPrice": 39000, "listingCount": 122 },
+      { "date": "2026-01", "avgPrice": 38800, "listingCount": 125 },
+      { "date": "2026-02", "avgPrice": 38500, "listingCount": 128 },
+      { "date": "2026-03", "avgPrice": 38200, "listingCount": 130 }
+    ]
+  },
+  "2006-BMW-M3": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 65 },
+      { "date": "2025-05", "avgPrice": 28800, "listingCount": 62 },
+      { "date": "2025-06", "avgPrice": 29500, "listingCount": 60 },
+      { "date": "2025-07", "avgPrice": 30200, "listingCount": 58 },
+      { "date": "2025-08", "avgPrice": 31000, "listingCount": 55 },
+      { "date": "2025-09", "avgPrice": 31500, "listingCount": 52 },
+      { "date": "2025-10", "avgPrice": 32200, "listingCount": 50 },
+      { "date": "2025-11", "avgPrice": 33000, "listingCount": 48 },
+      { "date": "2025-12", "avgPrice": 33800, "listingCount": 45 },
+      { "date": "2026-01", "avgPrice": 34500, "listingCount": 42 },
+      { "date": "2026-02", "avgPrice": 35200, "listingCount": 40 },
+      { "date": "2026-03", "avgPrice": 36000, "listingCount": 38 }
+    ]
+  },
+  "2010-Audi-R8": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 95000, "listingCount": 45 },
+      { "date": "2025-05", "avgPrice": 96000, "listingCount": 42 },
+      { "date": "2025-06", "avgPrice": 97500, "listingCount": 40 },
+      { "date": "2025-07", "avgPrice": 98000, "listingCount": 38 },
+      { "date": "2025-08", "avgPrice": 99000, "listingCount": 36 },
+      { "date": "2025-09", "avgPrice": 100000, "listingCount": 35 },
+      { "date": "2025-10", "avgPrice": 101500, "listingCount": 33 },
+      { "date": "2025-11", "avgPrice": 102000, "listingCount": 32 },
+      { "date": "2025-12", "avgPrice": 103000, "listingCount": 30 },
+      { "date": "2026-01", "avgPrice": 104000, "listingCount": 28 },
+      { "date": "2026-02", "avgPrice": 105000, "listingCount": 27 },
+      { "date": "2026-03", "avgPrice": 106000, "listingCount": 25 }
+    ]
+  },
+  "2018-Honda-Civic Type R": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 38000, "listingCount": 110 },
+      { "date": "2025-05", "avgPrice": 37500, "listingCount": 115 },
+      { "date": "2025-06", "avgPrice": 37000, "listingCount": 120 },
+      { "date": "2025-07", "avgPrice": 36500, "listingCount": 125 },
+      { "date": "2025-08", "avgPrice": 36000, "listingCount": 128 },
+      { "date": "2025-09", "avgPrice": 35500, "listingCount": 132 },
+      { "date": "2025-10", "avgPrice": 35200, "listingCount": 135 },
+      { "date": "2025-11", "avgPrice": 34800, "listingCount": 138 },
+      { "date": "2025-12", "avgPrice": 34500, "listingCount": 140 },
+      { "date": "2026-01", "avgPrice": 34200, "listingCount": 142 },
+      { "date": "2026-02", "avgPrice": 33800, "listingCount": 145 },
+      { "date": "2026-03", "avgPrice": 33500, "listingCount": 148 }
+    ]
+  },
+  "2017-Chevrolet-Camaro SS": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 30000, "listingCount": 250 },
+      { "date": "2025-05", "avgPrice": 29500, "listingCount": 255 },
+      { "date": "2025-06", "avgPrice": 29000, "listingCount": 260 },
+      { "date": "2025-07", "avgPrice": 28500, "listingCount": 265 },
+      { "date": "2025-08", "avgPrice": 28200, "listingCount": 270 },
+      { "date": "2025-09", "avgPrice": 27800, "listingCount": 272 },
+      { "date": "2025-10", "avgPrice": 27500, "listingCount": 275 },
+      { "date": "2025-11", "avgPrice": 27200, "listingCount": 278 },
+      { "date": "2025-12", "avgPrice": 27000, "listingCount": 280 },
+      { "date": "2026-01", "avgPrice": 26800, "listingCount": 282 },
+      { "date": "2026-02", "avgPrice": 26500, "listingCount": 285 },
+      { "date": "2026-03", "avgPrice": 26200, "listingCount": 288 }
+    ]
+  },
+  "2015-Ford-Mustang GT": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 27000, "listingCount": 320 },
+      { "date": "2025-05", "avgPrice": 26500, "listingCount": 325 },
+      { "date": "2025-06", "avgPrice": 26000, "listingCount": 330 },
+      { "date": "2025-07", "avgPrice": 25800, "listingCount": 335 },
+      { "date": "2025-08", "avgPrice": 25500, "listingCount": 338 },
+      { "date": "2025-09", "avgPrice": 25200, "listingCount": 340 },
+      { "date": "2025-10", "avgPrice": 25000, "listingCount": 342 },
+      { "date": "2025-11", "avgPrice": 24800, "listingCount": 345 },
+      { "date": "2025-12", "avgPrice": 24500, "listingCount": 348 },
+      { "date": "2026-01", "avgPrice": 24200, "listingCount": 350 },
+      { "date": "2026-02", "avgPrice": 24000, "listingCount": 352 },
+      { "date": "2026-03", "avgPrice": 23800, "listingCount": 355 }
+    ]
+  },
+  "2011-Nissan-370Z": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 18000, "listingCount": 160 },
+      { "date": "2025-05", "avgPrice": 17800, "listingCount": 162 },
+      { "date": "2025-06", "avgPrice": 17500, "listingCount": 165 },
+      { "date": "2025-07", "avgPrice": 17200, "listingCount": 168 },
+      { "date": "2025-08", "avgPrice": 17000, "listingCount": 170 },
+      { "date": "2025-09", "avgPrice": 16800, "listingCount": 172 },
+      { "date": "2025-10", "avgPrice": 16500, "listingCount": 175 },
+      { "date": "2025-11", "avgPrice": 16300, "listingCount": 178 },
+      { "date": "2025-12", "avgPrice": 16000, "listingCount": 180 },
+      { "date": "2026-01", "avgPrice": 15800, "listingCount": 182 },
+      { "date": "2026-02", "avgPrice": 15500, "listingCount": 185 },
+      { "date": "2026-03", "avgPrice": 15200, "listingCount": 188 }
+    ]
+  },
+  "2008-Porsche-Cayman S": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 32000, "listingCount": 70 },
+      { "date": "2025-05", "avgPrice": 32500, "listingCount": 68 },
+      { "date": "2025-06", "avgPrice": 33000, "listingCount": 65 },
+      { "date": "2025-07", "avgPrice": 33500, "listingCount": 62 },
+      { "date": "2025-08", "avgPrice": 34000, "listingCount": 60 },
+      { "date": "2025-09", "avgPrice": 34500, "listingCount": 58 },
+      { "date": "2025-10", "avgPrice": 35000, "listingCount": 55 },
+      { "date": "2025-11", "avgPrice": 35500, "listingCount": 52 },
+      { "date": "2025-12", "avgPrice": 36000, "listingCount": 50 },
+      { "date": "2026-01", "avgPrice": 36500, "listingCount": 48 },
+      { "date": "2026-02", "avgPrice": 37000, "listingCount": 45 },
+      { "date": "2026-03", "avgPrice": 37500, "listingCount": 42 }
+    ]
+  },
+  "2005-Dodge-Viper": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 62000, "listingCount": 30 },
+      { "date": "2025-05", "avgPrice": 63000, "listingCount": 28 },
+      { "date": "2025-06", "avgPrice": 64500, "listingCount": 27 },
+      { "date": "2025-07", "avgPrice": 65000, "listingCount": 26 },
+      { "date": "2025-08", "avgPrice": 66000, "listingCount": 25 },
+      { "date": "2025-09", "avgPrice": 67500, "listingCount": 24 },
+      { "date": "2025-10", "avgPrice": 68000, "listingCount": 22 },
+      { "date": "2025-11", "avgPrice": 69000, "listingCount": 20 },
+      { "date": "2025-12", "avgPrice": 70000, "listingCount": 18 },
+      { "date": "2026-01", "avgPrice": 71500, "listingCount": 17 },
+      { "date": "2026-02", "avgPrice": 72000, "listingCount": 16 },
+      { "date": "2026-03", "avgPrice": 73000, "listingCount": 15 }
+    ]
+  },
+  "2012-Chevrolet-Corvette": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 32000, "listingCount": 280 },
+      { "date": "2025-05", "avgPrice": 31500, "listingCount": 285 },
+      { "date": "2025-06", "avgPrice": 31000, "listingCount": 290 },
+      { "date": "2025-07", "avgPrice": 30500, "listingCount": 295 },
+      { "date": "2025-08", "avgPrice": 30200, "listingCount": 298 },
+      { "date": "2025-09", "avgPrice": 30000, "listingCount": 300 },
+      { "date": "2025-10", "avgPrice": 29800, "listingCount": 302 },
+      { "date": "2025-11", "avgPrice": 29500, "listingCount": 305 },
+      { "date": "2025-12", "avgPrice": 29200, "listingCount": 308 },
+      { "date": "2026-01", "avgPrice": 29000, "listingCount": 310 },
+      { "date": "2026-02", "avgPrice": 28800, "listingCount": 312 },
+      { "date": "2026-03", "avgPrice": 28500, "listingCount": 315 }
+    ]
+  },
+  "2019-Mazda-MX-5 Miata": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 140 },
+      { "date": "2025-05", "avgPrice": 27500, "listingCount": 145 },
+      { "date": "2025-06", "avgPrice": 27200, "listingCount": 148 },
+      { "date": "2025-07", "avgPrice": 27000, "listingCount": 150 },
+      { "date": "2025-08", "avgPrice": 26800, "listingCount": 152 },
+      { "date": "2025-09", "avgPrice": 26500, "listingCount": 155 },
+      { "date": "2025-10", "avgPrice": 26200, "listingCount": 158 },
+      { "date": "2025-11", "avgPrice": 26000, "listingCount": 160 },
+      { "date": "2025-12", "avgPrice": 25800, "listingCount": 162 },
+      { "date": "2026-01", "avgPrice": 25500, "listingCount": 165 },
+      { "date": "2026-02", "avgPrice": 25200, "listingCount": 168 },
+      { "date": "2026-03", "avgPrice": 25000, "listingCount": 170 }
+    ]
+  },
+  "2014-Subaru-WRX STI": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 30000, "listingCount": 90 },
+      { "date": "2025-05", "avgPrice": 30500, "listingCount": 88 },
+      { "date": "2025-06", "avgPrice": 31000, "listingCount": 85 },
+      { "date": "2025-07", "avgPrice": 31200, "listingCount": 82 },
+      { "date": "2025-08", "avgPrice": 31500, "listingCount": 80 },
+      { "date": "2025-09", "avgPrice": 31800, "listingCount": 78 },
+      { "date": "2025-10", "avgPrice": 32000, "listingCount": 75 },
+      { "date": "2025-11", "avgPrice": 32200, "listingCount": 72 },
+      { "date": "2025-12", "avgPrice": 32500, "listingCount": 70 },
+      { "date": "2026-01", "avgPrice": 32800, "listingCount": 68 },
+      { "date": "2026-02", "avgPrice": 33000, "listingCount": 65 },
+      { "date": "2026-03", "avgPrice": 33200, "listingCount": 62 }
+    ]
+  },
+  "2004-Lexus-IS 300": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 14000, "listingCount": 55 },
+      { "date": "2025-05", "avgPrice": 14500, "listingCount": 52 },
+      { "date": "2025-06", "avgPrice": 15000, "listingCount": 50 },
+      { "date": "2025-07", "avgPrice": 15200, "listingCount": 48 },
+      { "date": "2025-08", "avgPrice": 15500, "listingCount": 45 },
+      { "date": "2025-09", "avgPrice": 16000, "listingCount": 42 },
+      { "date": "2025-10", "avgPrice": 16200, "listingCount": 40 },
+      { "date": "2025-11", "avgPrice": 16500, "listingCount": 38 },
+      { "date": "2025-12", "avgPrice": 17000, "listingCount": 36 },
+      { "date": "2026-01", "avgPrice": 17200, "listingCount": 35 },
+      { "date": "2026-02", "avgPrice": 17500, "listingCount": 33 },
+      { "date": "2026-03", "avgPrice": 18000, "listingCount": 30 }
+    ]
+  },
+  "2013-Dodge-Challenger SRT8": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 32000, "listingCount": 75 },
+      { "date": "2025-05", "avgPrice": 32500, "listingCount": 72 },
+      { "date": "2025-06", "avgPrice": 33000, "listingCount": 70 },
+      { "date": "2025-07", "avgPrice": 33500, "listingCount": 68 },
+      { "date": "2025-08", "avgPrice": 34000, "listingCount": 65 },
+      { "date": "2025-09", "avgPrice": 34500, "listingCount": 62 },
+      { "date": "2025-10", "avgPrice": 35000, "listingCount": 60 },
+      { "date": "2025-11", "avgPrice": 35500, "listingCount": 58 },
+      { "date": "2025-12", "avgPrice": 36000, "listingCount": 55 },
+      { "date": "2026-01", "avgPrice": 36500, "listingCount": 52 },
+      { "date": "2026-02", "avgPrice": 37000, "listingCount": 50 },
+      { "date": "2026-03", "avgPrice": 37500, "listingCount": 48 }
+    ]
+  },
+  "2016-Mercedes-Benz-AMG GT": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 82000, "listingCount": 55 },
+      { "date": "2025-05", "avgPrice": 81000, "listingCount": 58 },
+      { "date": "2025-06", "avgPrice": 80000, "listingCount": 60 },
+      { "date": "2025-07", "avgPrice": 79500, "listingCount": 62 },
+      { "date": "2025-08", "avgPrice": 79000, "listingCount": 64 },
+      { "date": "2025-09", "avgPrice": 78500, "listingCount": 65 },
+      { "date": "2025-10", "avgPrice": 78000, "listingCount": 66 },
+      { "date": "2025-11", "avgPrice": 77500, "listingCount": 68 },
+      { "date": "2025-12", "avgPrice": 77000, "listingCount": 70 },
+      { "date": "2026-01", "avgPrice": 76500, "listingCount": 72 },
+      { "date": "2026-02", "avgPrice": 76000, "listingCount": 74 },
+      { "date": "2026-03", "avgPrice": 75500, "listingCount": 75 }
+    ]
+  },
+  "2018-Dodge-Charger Hellcat": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 52000, "listingCount": 120 },
+      { "date": "2025-05", "avgPrice": 52500, "listingCount": 118 },
+      { "date": "2025-06", "avgPrice": 53000, "listingCount": 115 },
+      { "date": "2025-07", "avgPrice": 53500, "listingCount": 112 },
+      { "date": "2025-08", "avgPrice": 54000, "listingCount": 110 },
+      { "date": "2025-09", "avgPrice": 55000, "listingCount": 108 },
+      { "date": "2025-10", "avgPrice": 55500, "listingCount": 105 },
+      { "date": "2025-11", "avgPrice": 56000, "listingCount": 102 },
+      { "date": "2025-12", "avgPrice": 56500, "listingCount": 100 },
+      { "date": "2026-01", "avgPrice": 57000, "listingCount": 98 },
+      { "date": "2026-02", "avgPrice": 58000, "listingCount": 95 },
+      { "date": "2026-03", "avgPrice": 58500, "listingCount": 92 }
+    ]
+  },
+  "2005-Honda-S2000": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 35000, "listingCount": 40 },
+      { "date": "2025-05", "avgPrice": 35800, "listingCount": 38 },
+      { "date": "2025-06", "avgPrice": 36500, "listingCount": 36 },
+      { "date": "2025-07", "avgPrice": 37000, "listingCount": 35 },
+      { "date": "2025-08", "avgPrice": 37500, "listingCount": 33 },
+      { "date": "2025-09", "avgPrice": 38000, "listingCount": 32 },
+      { "date": "2025-10", "avgPrice": 38500, "listingCount": 30 },
+      { "date": "2025-11", "avgPrice": 39000, "listingCount": 28 },
+      { "date": "2025-12", "avgPrice": 39500, "listingCount": 26 },
+      { "date": "2026-01", "avgPrice": 40000, "listingCount": 25 },
+      { "date": "2026-02", "avgPrice": 40500, "listingCount": 23 },
+      { "date": "2026-03", "avgPrice": 41000, "listingCount": 22 }
+    ]
+  },
+  "2019-Chevrolet-Corvette": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 48000, "listingCount": 350 },
+      { "date": "2025-05", "avgPrice": 47000, "listingCount": 360 },
+      { "date": "2025-06", "avgPrice": 46500, "listingCount": 365 },
+      { "date": "2025-07", "avgPrice": 46000, "listingCount": 370 },
+      { "date": "2025-08", "avgPrice": 45500, "listingCount": 375 },
+      { "date": "2025-09", "avgPrice": 45000, "listingCount": 380 },
+      { "date": "2025-10", "avgPrice": 44500, "listingCount": 385 },
+      { "date": "2025-11", "avgPrice": 44000, "listingCount": 390 },
+      { "date": "2025-12", "avgPrice": 43500, "listingCount": 395 },
+      { "date": "2026-01", "avgPrice": 43000, "listingCount": 400 },
+      { "date": "2026-02", "avgPrice": 42500, "listingCount": 405 },
+      { "date": "2026-03", "avgPrice": 42000, "listingCount": 410 }
+    ]
+  },
+  "2010-Jaguar-XF": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 14000, "listingCount": 85 },
+      { "date": "2025-05", "avgPrice": 13500, "listingCount": 88 },
+      { "date": "2025-06", "avgPrice": 13200, "listingCount": 90 },
+      { "date": "2025-07", "avgPrice": 12800, "listingCount": 92 },
+      { "date": "2025-08", "avgPrice": 12500, "listingCount": 95 },
+      { "date": "2025-09", "avgPrice": 12200, "listingCount": 98 },
+      { "date": "2025-10", "avgPrice": 11800, "listingCount": 100 },
+      { "date": "2025-11", "avgPrice": 11500, "listingCount": 102 },
+      { "date": "2025-12", "avgPrice": 11200, "listingCount": 105 },
+      { "date": "2026-01", "avgPrice": 10800, "listingCount": 108 },
+      { "date": "2026-02", "avgPrice": 10500, "listingCount": 110 },
+      { "date": "2026-03", "avgPrice": 10200, "listingCount": 112 }
+    ]
+  },
+  "2017-Infiniti-Q60": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 26000, "listingCount": 110 },
+      { "date": "2025-05", "avgPrice": 25500, "listingCount": 115 },
+      { "date": "2025-06", "avgPrice": 25000, "listingCount": 118 },
+      { "date": "2025-07", "avgPrice": 24500, "listingCount": 120 },
+      { "date": "2025-08", "avgPrice": 24200, "listingCount": 122 },
+      { "date": "2025-09", "avgPrice": 23800, "listingCount": 125 },
+      { "date": "2025-10", "avgPrice": 23500, "listingCount": 128 },
+      { "date": "2025-11", "avgPrice": 23200, "listingCount": 130 },
+      { "date": "2025-12", "avgPrice": 22800, "listingCount": 132 },
+      { "date": "2026-01", "avgPrice": 22500, "listingCount": 135 },
+      { "date": "2026-02", "avgPrice": 22200, "listingCount": 138 },
+      { "date": "2026-03", "avgPrice": 21800, "listingCount": 140 }
+    ]
+  },
+  "2011-Cadillac-CTS-V": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 38000, "listingCount": 45 },
+      { "date": "2025-05", "avgPrice": 38500, "listingCount": 43 },
+      { "date": "2025-06", "avgPrice": 39000, "listingCount": 42 },
+      { "date": "2025-07", "avgPrice": 39500, "listingCount": 40 },
+      { "date": "2025-08", "avgPrice": 40000, "listingCount": 38 },
+      { "date": "2025-09", "avgPrice": 40500, "listingCount": 36 },
+      { "date": "2025-10", "avgPrice": 41000, "listingCount": 35 },
+      { "date": "2025-11", "avgPrice": 41500, "listingCount": 33 },
+      { "date": "2025-12", "avgPrice": 42000, "listingCount": 32 },
+      { "date": "2026-01", "avgPrice": 42500, "listingCount": 30 },
+      { "date": "2026-02", "avgPrice": 43000, "listingCount": 28 },
+      { "date": "2026-03", "avgPrice": 43500, "listingCount": 27 }
+    ]
+  },
+  "2016-Lexus-RC F": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 42000, "listingCount": 65 },
+      { "date": "2025-05", "avgPrice": 41500, "listingCount": 68 },
+      { "date": "2025-06", "avgPrice": 41000, "listingCount": 70 },
+      { "date": "2025-07", "avgPrice": 40500, "listingCount": 72 },
+      { "date": "2025-08", "avgPrice": 40000, "listingCount": 75 },
+      { "date": "2025-09", "avgPrice": 39500, "listingCount": 78 },
+      { "date": "2025-10", "avgPrice": 39200, "listingCount": 80 },
+      { "date": "2025-11", "avgPrice": 38800, "listingCount": 82 },
+      { "date": "2025-12", "avgPrice": 38500, "listingCount": 85 },
+      { "date": "2026-01", "avgPrice": 38200, "listingCount": 88 },
+      { "date": "2026-02", "avgPrice": 37800, "listingCount": 90 },
+      { "date": "2026-03", "avgPrice": 37500, "listingCount": 92 }
+    ]
+  },
+  "2020-Hyundai-Veloster N": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 30000, "listingCount": 55 },
+      { "date": "2025-05", "avgPrice": 30200, "listingCount": 53 },
+      { "date": "2025-06", "avgPrice": 30500, "listingCount": 52 },
+      { "date": "2025-07", "avgPrice": 30800, "listingCount": 50 },
+      { "date": "2025-08", "avgPrice": 31000, "listingCount": 48 },
+      { "date": "2025-09", "avgPrice": 31200, "listingCount": 46 },
+      { "date": "2025-10", "avgPrice": 31500, "listingCount": 45 },
+      { "date": "2025-11", "avgPrice": 31800, "listingCount": 43 },
+      { "date": "2025-12", "avgPrice": 32000, "listingCount": 42 },
+      { "date": "2026-01", "avgPrice": 32200, "listingCount": 40 },
+      { "date": "2026-02", "avgPrice": 32500, "listingCount": 38 },
+      { "date": "2026-03", "avgPrice": 32800, "listingCount": 36 }
+    ]
+  },
+  "2007-Porsche-Boxster S": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 25000, "listingCount": 80 },
+      { "date": "2025-05", "avgPrice": 25500, "listingCount": 78 },
+      { "date": "2025-06", "avgPrice": 26000, "listingCount": 75 },
+      { "date": "2025-07", "avgPrice": 26500, "listingCount": 72 },
+      { "date": "2025-08", "avgPrice": 27000, "listingCount": 70 },
+      { "date": "2025-09", "avgPrice": 27500, "listingCount": 68 },
+      { "date": "2025-10", "avgPrice": 28000, "listingCount": 65 },
+      { "date": "2025-11", "avgPrice": 28500, "listingCount": 62 },
+      { "date": "2025-12", "avgPrice": 29000, "listingCount": 60 },
+      { "date": "2026-01", "avgPrice": 29500, "listingCount": 58 },
+      { "date": "2026-02", "avgPrice": 30000, "listingCount": 55 },
+      { "date": "2026-03", "avgPrice": 30500, "listingCount": 52 }
+    ]
+  },
+  "2015-Lexus-IS 350": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 24000, "listingCount": 180 },
+      { "date": "2025-05", "avgPrice": 23500, "listingCount": 185 },
+      { "date": "2025-06", "avgPrice": 23200, "listingCount": 188 },
+      { "date": "2025-07", "avgPrice": 22800, "listingCount": 190 },
+      { "date": "2025-08", "avgPrice": 22500, "listingCount": 192 },
+      { "date": "2025-09", "avgPrice": 22200, "listingCount": 195 },
+      { "date": "2025-10", "avgPrice": 21800, "listingCount": 198 },
+      { "date": "2025-11", "avgPrice": 21500, "listingCount": 200 },
+      { "date": "2025-12", "avgPrice": 21200, "listingCount": 202 },
+      { "date": "2026-01", "avgPrice": 20800, "listingCount": 205 },
+      { "date": "2026-02", "avgPrice": 20500, "listingCount": 208 },
+      { "date": "2026-03", "avgPrice": 20200, "listingCount": 210 }
+    ]
+  },
+  "2013-Ford-Focus ST": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 16000, "listingCount": 130 },
+      { "date": "2025-05", "avgPrice": 15700, "listingCount": 132 },
+      { "date": "2025-06", "avgPrice": 15400, "listingCount": 135 },
+      { "date": "2025-07", "avgPrice": 15200, "listingCount": 138 },
+      { "date": "2025-08", "avgPrice": 15000, "listingCount": 140 },
+      { "date": "2025-09", "avgPrice": 14800, "listingCount": 142 },
+      { "date": "2025-10", "avgPrice": 14500, "listingCount": 145 },
+      { "date": "2025-11", "avgPrice": 14200, "listingCount": 148 },
+      { "date": "2025-12", "avgPrice": 14000, "listingCount": 150 },
+      { "date": "2026-01", "avgPrice": 13800, "listingCount": 152 },
+      { "date": "2026-02", "avgPrice": 13500, "listingCount": 155 },
+      { "date": "2026-03", "avgPrice": 13200, "listingCount": 158 }
+    ]
+  },
+  "2018-Kia-Stinger GT": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 95 },
+      { "date": "2025-05", "avgPrice": 27500, "listingCount": 98 },
+      { "date": "2025-06", "avgPrice": 27000, "listingCount": 100 },
+      { "date": "2025-07", "avgPrice": 26500, "listingCount": 102 },
+      { "date": "2025-08", "avgPrice": 26000, "listingCount": 105 },
+      { "date": "2025-09", "avgPrice": 25500, "listingCount": 108 },
+      { "date": "2025-10", "avgPrice": 25200, "listingCount": 110 },
+      { "date": "2025-11", "avgPrice": 24800, "listingCount": 112 },
+      { "date": "2025-12", "avgPrice": 24500, "listingCount": 115 },
+      { "date": "2026-01", "avgPrice": 24200, "listingCount": 118 },
+      { "date": "2026-02", "avgPrice": 23800, "listingCount": 120 },
+      { "date": "2026-03", "avgPrice": 23500, "listingCount": 122 }
+    ]
+  },
+  "2016-BMW-M4": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 42000, "listingCount": 150 },
+      { "date": "2025-05", "avgPrice": 41500, "listingCount": 155 },
+      { "date": "2025-06", "avgPrice": 41000, "listingCount": 158 },
+      { "date": "2025-07", "avgPrice": 40500, "listingCount": 160 },
+      { "date": "2025-08", "avgPrice": 40000, "listingCount": 162 },
+      { "date": "2025-09", "avgPrice": 39500, "listingCount": 165 },
+      { "date": "2025-10", "avgPrice": 39200, "listingCount": 168 },
+      { "date": "2025-11", "avgPrice": 38800, "listingCount": 170 },
+      { "date": "2025-12", "avgPrice": 38500, "listingCount": 172 },
+      { "date": "2026-01", "avgPrice": 38200, "listingCount": 175 },
+      { "date": "2026-02", "avgPrice": 37800, "listingCount": 178 },
+      { "date": "2026-03", "avgPrice": 37500, "listingCount": 180 }
+    ]
+  },
+  "2015-Volkswagen-Golf R": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 65 },
+      { "date": "2025-05", "avgPrice": 28200, "listingCount": 63 },
+      { "date": "2025-06", "avgPrice": 28500, "listingCount": 60 },
+      { "date": "2025-07", "avgPrice": 28800, "listingCount": 58 },
+      { "date": "2025-08", "avgPrice": 29000, "listingCount": 56 },
+      { "date": "2025-09", "avgPrice": 29200, "listingCount": 55 },
+      { "date": "2025-10", "avgPrice": 29500, "listingCount": 53 },
+      { "date": "2025-11", "avgPrice": 29800, "listingCount": 52 },
+      { "date": "2025-12", "avgPrice": 30000, "listingCount": 50 },
+      { "date": "2026-01", "avgPrice": 30200, "listingCount": 48 },
+      { "date": "2026-02", "avgPrice": 30500, "listingCount": 46 },
+      { "date": "2026-03", "avgPrice": 30800, "listingCount": 45 }
+    ]
+  },
+  "2012-Nissan-GT-R": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 72000, "listingCount": 50 },
+      { "date": "2025-05", "avgPrice": 72500, "listingCount": 48 },
+      { "date": "2025-06", "avgPrice": 73000, "listingCount": 46 },
+      { "date": "2025-07", "avgPrice": 73500, "listingCount": 45 },
+      { "date": "2025-08", "avgPrice": 74000, "listingCount": 43 },
+      { "date": "2025-09", "avgPrice": 74500, "listingCount": 42 },
+      { "date": "2025-10", "avgPrice": 75000, "listingCount": 40 },
+      { "date": "2025-11", "avgPrice": 75500, "listingCount": 38 },
+      { "date": "2025-12", "avgPrice": 76000, "listingCount": 36 },
+      { "date": "2026-01", "avgPrice": 76500, "listingCount": 35 },
+      { "date": "2026-02", "avgPrice": 77000, "listingCount": 33 },
+      { "date": "2026-03", "avgPrice": 77500, "listingCount": 32 }
+    ]
+  },
+  "2009-Mitsubishi-Lancer Evolution": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 32000, "listingCount": 35 },
+      { "date": "2025-05", "avgPrice": 32800, "listingCount": 33 },
+      { "date": "2025-06", "avgPrice": 33500, "listingCount": 32 },
+      { "date": "2025-07", "avgPrice": 34000, "listingCount": 30 },
+      { "date": "2025-08", "avgPrice": 34800, "listingCount": 28 },
+      { "date": "2025-09", "avgPrice": 35500, "listingCount": 27 },
+      { "date": "2025-10", "avgPrice": 36000, "listingCount": 25 },
+      { "date": "2025-11", "avgPrice": 36500, "listingCount": 24 },
+      { "date": "2025-12", "avgPrice": 37000, "listingCount": 22 },
+      { "date": "2026-01", "avgPrice": 37500, "listingCount": 20 },
+      { "date": "2026-02", "avgPrice": 38000, "listingCount": 18 },
+      { "date": "2026-03", "avgPrice": 38500, "listingCount": 17 }
+    ]
+  },
+  "2017-Audi-S3": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 75 },
+      { "date": "2025-05", "avgPrice": 27500, "listingCount": 78 },
+      { "date": "2025-06", "avgPrice": 27000, "listingCount": 80 },
+      { "date": "2025-07", "avgPrice": 26500, "listingCount": 82 },
+      { "date": "2025-08", "avgPrice": 26200, "listingCount": 85 },
+      { "date": "2025-09", "avgPrice": 25800, "listingCount": 88 },
+      { "date": "2025-10", "avgPrice": 25500, "listingCount": 90 },
+      { "date": "2025-11", "avgPrice": 25200, "listingCount": 92 },
+      { "date": "2025-12", "avgPrice": 24800, "listingCount": 95 },
+      { "date": "2026-01", "avgPrice": 24500, "listingCount": 98 },
+      { "date": "2026-02", "avgPrice": 24200, "listingCount": 100 },
+      { "date": "2026-03", "avgPrice": 23800, "listingCount": 102 }
+    ]
+  },
+  "2014-Chevrolet-Camaro ZL1": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 42000, "listingCount": 40 },
+      { "date": "2025-05", "avgPrice": 42500, "listingCount": 38 },
+      { "date": "2025-06", "avgPrice": 43000, "listingCount": 37 },
+      { "date": "2025-07", "avgPrice": 43500, "listingCount": 36 },
+      { "date": "2025-08", "avgPrice": 44000, "listingCount": 35 },
+      { "date": "2025-09", "avgPrice": 44500, "listingCount": 33 },
+      { "date": "2025-10", "avgPrice": 45000, "listingCount": 32 },
+      { "date": "2025-11", "avgPrice": 45500, "listingCount": 30 },
+      { "date": "2025-12", "avgPrice": 46000, "listingCount": 28 },
+      { "date": "2026-01", "avgPrice": 46500, "listingCount": 27 },
+      { "date": "2026-02", "avgPrice": 47000, "listingCount": 25 },
+      { "date": "2026-03", "avgPrice": 47500, "listingCount": 24 }
+    ]
+  },
+  "2019-Ford-Ranger": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 28000, "listingCount": 480 },
+      { "date": "2025-05", "avgPrice": 27500, "listingCount": 490 },
+      { "date": "2025-06", "avgPrice": 27000, "listingCount": 500 },
+      { "date": "2025-07", "avgPrice": 26800, "listingCount": 510 },
+      { "date": "2025-08", "avgPrice": 26500, "listingCount": 520 },
+      { "date": "2025-09", "avgPrice": 26200, "listingCount": 525 },
+      { "date": "2025-10", "avgPrice": 26000, "listingCount": 530 },
+      { "date": "2025-11", "avgPrice": 25800, "listingCount": 535 },
+      { "date": "2025-12", "avgPrice": 25500, "listingCount": 540 },
+      { "date": "2026-01", "avgPrice": 25200, "listingCount": 545 },
+      { "date": "2026-02", "avgPrice": 25000, "listingCount": 550 },
+      { "date": "2026-03", "avgPrice": 24800, "listingCount": 555 }
+    ]
+  },
+  "2010-Mercedes-Benz-E63 AMG": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 26000, "listingCount": 40 },
+      { "date": "2025-05", "avgPrice": 26500, "listingCount": 38 },
+      { "date": "2025-06", "avgPrice": 27000, "listingCount": 36 },
+      { "date": "2025-07", "avgPrice": 27500, "listingCount": 35 },
+      { "date": "2025-08", "avgPrice": 28000, "listingCount": 33 },
+      { "date": "2025-09", "avgPrice": 28500, "listingCount": 32 },
+      { "date": "2025-10", "avgPrice": 29000, "listingCount": 30 },
+      { "date": "2025-11", "avgPrice": 29500, "listingCount": 28 },
+      { "date": "2025-12", "avgPrice": 30000, "listingCount": 27 },
+      { "date": "2026-01", "avgPrice": 30500, "listingCount": 25 },
+      { "date": "2026-02", "avgPrice": 31000, "listingCount": 23 },
+      { "date": "2026-03", "avgPrice": 31500, "listingCount": 22 }
+    ]
+  },
+  "2016-Ford-Focus RS": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 35000, "listingCount": 50 },
+      { "date": "2025-05", "avgPrice": 35500, "listingCount": 48 },
+      { "date": "2025-06", "avgPrice": 36000, "listingCount": 46 },
+      { "date": "2025-07", "avgPrice": 36200, "listingCount": 45 },
+      { "date": "2025-08", "avgPrice": 36500, "listingCount": 43 },
+      { "date": "2025-09", "avgPrice": 37000, "listingCount": 42 },
+      { "date": "2025-10", "avgPrice": 37200, "listingCount": 40 },
+      { "date": "2025-11", "avgPrice": 37500, "listingCount": 38 },
+      { "date": "2025-12", "avgPrice": 38000, "listingCount": 36 },
+      { "date": "2026-01", "avgPrice": 38200, "listingCount": 35 },
+      { "date": "2026-02", "avgPrice": 38500, "listingCount": 33 },
+      { "date": "2026-03", "avgPrice": 39000, "listingCount": 32 }
+    ]
+  },
+  "2020-Toyota-86": {
+    "dataPoints": [
+      { "date": "2025-04", "avgPrice": 24000, "listingCount": 120 },
+      { "date": "2025-05", "avgPrice": 23800, "listingCount": 122 },
+      { "date": "2025-06", "avgPrice": 23500, "listingCount": 125 },
+      { "date": "2025-07", "avgPrice": 23200, "listingCount": 128 },
+      { "date": "2025-08", "avgPrice": 23000, "listingCount": 130 },
+      { "date": "2025-09", "avgPrice": 22800, "listingCount": 132 },
+      { "date": "2025-10", "avgPrice": 22500, "listingCount": 135 },
+      { "date": "2025-11", "avgPrice": 22200, "listingCount": 138 },
+      { "date": "2025-12", "avgPrice": 22000, "listingCount": 140 },
+      { "date": "2026-01", "avgPrice": 21800, "listingCount": 142 },
+      { "date": "2026-02", "avgPrice": 21500, "listingCount": 145 },
+      { "date": "2026-03", "avgPrice": 21200, "listingCount": 148 }
+    ]
+  }
+}
