@@ -35,10 +35,11 @@ export default function PriceSummaryCard({ trend }: PriceSummaryCardProps) {
       trend.dataPoints.length
   );
 
-  const confidenceColors = {
+  const confidenceColors: Record<string, string> = {
     high: "text-green-500",
     medium: "text-brand-gold",
     low: "text-neutral-400",
+    estimated: "text-blue-400",
   };
 
   return (

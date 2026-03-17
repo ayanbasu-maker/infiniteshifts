@@ -44,5 +44,5 @@ export interface PricingTrend {
   currentAvg: number;
   projectedDirection: "up" | "down" | "stable";
   projectedChangePercent: number;
-  confidence: "low" | "medium" | "high";
+  confidence: "low" | "medium" | "high" | "estimated";
 }
