@@ -408,13 +408,13 @@ function getEstimatedConfidence(
   // Listing count
   if (avgListings > 200) {
     score += 2;
-    reasons.push(`~${avgListings} active listings nationwide`);
+    reasons.push("many active listings available for comparison");
   } else if (avgListings > 50) {
     score += 1;
-    reasons.push(`~${avgListings} active listings nationwide`);
+    reasons.push("moderate number of listings available");
   } else {
     score += 0;
-    reasons.push(`only ~${avgListings} active listings found`);
+    reasons.push("few active listings to compare against");
   }
 
   // Well-known makes get a small boost
@@ -622,13 +622,13 @@ export function getPricingData(
     let confidenceReason: string;
     if (dataPoints.length >= 10 && avgListings > 200) {
       confidence = "high";
-      confidenceReason = `Strong data: ${dataPoints.length} months of history with ~${avgListings} average active listings. Based on verified market transactions.`;
+      confidenceReason = "Strong data with extensive history and many active listings. Based on verified market transactions.";
     } else if (dataPoints.length >= 6 && avgListings > 50) {
       confidence = "medium";
-      confidenceReason = `Good data: ${dataPoints.length} months of history with ~${avgListings} average active listings. Sufficient sample size for reliable trends.`;
+      confidenceReason = "Good data with sufficient history and a solid number of listings. Reliable for general trend analysis.";
     } else {
       confidence = "low";
-      confidenceReason = `Limited data: ${dataPoints.length} months of history with only ~${avgListings} average active listings. Trends may be less reliable.`;
+      confidenceReason = "Limited history or fewer listings available. Trends may be less reliable for this specific vehicle.";
     }
 
     const parts = matchedKey.split("-");
