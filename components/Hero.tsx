@@ -18,9 +18,24 @@ export default function Hero({ viewCount }: { viewCount?: string }) {
           Watch on YouTube
         </a>
         {viewCount && (
-          <p className="mt-4 text-lg md:text-xl text-neutral-400 tracking-wide">
-            <span className="font-bold text-foreground text-xl md:text-2xl">{viewCount}</span> views and counting
-          </p>
+          <div className="mt-4 flex items-center justify-center gap-2 text-lg md:text-xl text-neutral-400 tracking-wide">
+            <svg
+              className="w-6 h-6 md:w-7 md:h-7 text-green-500 animate-bounce"
+              style={{ animationDuration: '2s' }}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+              <polyline points="16 7 22 7 22 13" />
+            </svg>
+            <p>
+              <span className="font-bold text-foreground text-xl md:text-2xl">{viewCount}</span> views and counting
+            </p>
+          </div>
         )}
       </div>
     </section>
