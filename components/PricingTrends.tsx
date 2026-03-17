@@ -8,6 +8,15 @@ import type { PricingTrend } from "@/lib/types";
 
 const PriceChart = dynamic(() => import("./PriceChart"), { ssr: false });
 
+type Timeframe = "6m" | "1y" | "3y" | "5y";
+
+const TIMEFRAME_OPTIONS: { value: Timeframe; label: string }[] = [
+  { value: "6m", label: "6 Months" },
+  { value: "1y", label: "1 Year" },
+  { value: "3y", label: "3 Years" },
+  { value: "5y", label: "5 Years" },
+];
+
 const POPULAR_CARS = [
   { year: 2006, make: "BMW", model: "M3" },
   { year: 2008, make: "Lexus", model: "IS F" },
@@ -21,7 +30,7 @@ const POPULAR_CARS = [
 
 export default function PricingTrends() {
   const [trend, setTrend] = useState<PricingTrend | null>(null);
-  const [timeframe, setTimeframe] = useState<"6m" | "1y">("1y");
+  const [timeframe, setTimeframe] = useState<Timeframe>("1y");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [searchedVehicle, setSearchedVehicle] = useState<{
@@ -30,7 +39,7 @@ export default function PricingTrends() {
     model: string;
   } | null>(null);
 
-  const fetchPricing = async (year: number, make: string, model: string, tf: "6m" | "1y") => {
+  const fetchPricing = async (year: number, make: string, model: string, tf: Timeframe) => {
     setLoading(true);
     setError(null);
     setSearchedVehicle({ year, make, model });
@@ -60,7 +69,7 @@ export default function PricingTrends() {
     fetchPricing(year, make, model, timeframe);
   };
 
-  const handleTimeframeChange = (tf: "6m" | "1y") => {
+  const handleTimeframeChange = (tf: Timeframe) => {
     setTimeframe(tf);
     if (searchedVehicle) {
       fetchPricing(searchedVehicle.year, searchedVehicle.make, searchedVehicle.model, tf);
@@ -77,28 +86,21 @@ export default function PricingTrends() {
 
       {/* Timeframe toggle */}
       {(trend || searchedVehicle) && (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="text-sm text-neutral-400 mr-2">Timeframe:</span>
-          <button
-            onClick={() => handleTimeframeChange("6m")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              timeframe === "6m"
-                ? "bg-brand-gold text-black"
-                : "bg-neutral-900 text-neutral-400 border border-neutral-800 hover:border-brand-gold/50"
-            }`}
-          >
-            6 Months
-          </button>
-          <button
-            onClick={() => handleTimeframeChange("1y")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              timeframe === "1y"
-                ? "bg-brand-gold text-black"
-                : "bg-neutral-900 text-neutral-400 border border-neutral-800 hover:border-brand-gold/50"
-            }`}
-          >
-            1 Year
-          </button>
+          {TIMEFRAME_OPTIONS.map((opt) => (
+            <button
+              key={opt.value}
+              onClick={() => handleTimeframeChange(opt.value)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                timeframe === opt.value
+                  ? "bg-brand-gold text-black"
+                  : "bg-neutral-900 text-neutral-400 border border-neutral-800 hover:border-brand-gold/50"
+              }`}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
       )}
 
@@ -153,6 +155,39 @@ export default function PricingTrends() {
           </div>
         </div>
       )}
+
+      {/* How it works section */}
+      <div className="bg-neutral-900/50 rounded-lg border border-neutral-800 p-6">
+        <h3 className="text-sm font-semibold uppercase tracking-wider text-neutral-400 mb-4">
+          How Our Pricing Works
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-neutral-400">
+          <div>
+            <p className="font-semibold text-foreground mb-1">Data Sources</p>
+            <p>
+              We analyze pricing from CarGurus, Autotrader, Cars.com, Bring a Trailer, Cars &amp; Bids,
+              dealer inventory feeds, Craigslist, Facebook Marketplace, and private auction records
+              to build a comprehensive picture of real market values.
+            </p>
+          </div>
+          <div>
+            <p className="font-semibold text-foreground mb-1">How We Estimate</p>
+            <p>
+              Our model factors in original MSRP, age-based depreciation curves, production volume,
+              market demand, collector/enthusiast premiums, and seasonal buying patterns to calculate
+              current values and project future trends.
+            </p>
+          </div>
+          <div>
+            <p className="font-semibold text-foreground mb-1">Confidence Levels</p>
+            <p>
+              <span className="text-green-500 font-medium">High</span> = abundant data, many active listings.{" "}
+              <span className="text-brand-gold font-medium">Medium</span> = solid data with some gaps.{" "}
+              <span className="text-neutral-300 font-medium">Low</span> = limited listings, rare model, or very old vehicle.
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Disclaimer */}
       <p className="text-xs text-neutral-400 pt-4 border-t border-neutral-800">

@@ -39,10 +39,12 @@ export interface PricingTrend {
   year: number;
   make: string;
   model: string;
-  timeframe: "6m" | "1y";
+  timeframe: "6m" | "1y" | "3y" | "5y";
   dataPoints: PriceDataPoint[];
   currentAvg: number;
   projectedDirection: "up" | "down" | "stable";
   projectedChangePercent: number;
-  confidence: "low" | "medium" | "high" | "estimated";
+  confidence: "low" | "medium" | "high";
+  confidenceReason: string;
+  dataSource: string;
 }
