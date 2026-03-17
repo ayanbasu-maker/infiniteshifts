@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 // Kit (ConvertKit) integration for email collection.
-// Uses the Kit V4 API to add subscribers.
+// Uses the Kit V3 API to subscribe users to a form.
 
-const KIT_API_URL = "https://api.kit.com/v4";
+const KIT_API_URL = "https://api.convertkit.com/v3";
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,29 +20,28 @@ export async function POST(request: NextRequest) {
     }
 
     const apiKey = process.env.KIT_API_KEY;
-    if (!apiKey) {
-      console.error("KIT_API_KEY not configured");
+    const formId = process.env.KIT_FORM_ID;
+    if (!apiKey || !formId) {
+      console.error("KIT_API_KEY or KIT_FORM_ID not configured");
       return NextResponse.json(
         { error: "Email signup is not configured yet." },
         { status: 500 }
       );
     }
 
-    // Add subscriber via Kit V4 API
-    const res = await fetch(`${KIT_API_URL}/subscribers`, {
+    // Subscribe to form via Kit V3 API
+    const res = await fetch(`${KIT_API_URL}/forms/${formId}/subscribe`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
-        "Accept": "application/json",
       },
       body: JSON.stringify({
-        email_address: email,
+        api_key: apiKey,
+        email,
         first_name: firstName,
         fields: {
           last_name: lastName,
         },
-        state: "active",
       }),
     });
 
