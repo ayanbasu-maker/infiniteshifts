@@ -1,16 +1,57 @@
 import type { VehicleMake, VehicleModel } from "./types";
 
-// Curated list of common passenger vehicle makes to filter NHTSA's 10,000+ results
-const ALLOWED_MAKES = new Set([
-  "Acura", "Alfa Romeo", "Aston Martin", "Audi", "BMW", "Bentley", "Buick",
-  "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", "Ford",
-  "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jaguar", "Jeep", "Kia",
-  "Lamborghini", "Land Rover", "Lexus", "Lincoln", "Lotus", "Maserati",
-  "Mazda", "McLaren", "Mercedes-Benz", "Mini", "Mitsubishi", "Nissan",
-  "Peugeot", "Pontiac", "Porsche", "RAM", "Rivian", "Rolls-Royce", "Saab",
-  "Saturn", "Scion", "Subaru", "Suzuki", "Tesla", "Toyota", "Volkswagen",
-  "Volvo",
-]);
+// Curated map of common makes: lowercase key -> display name
+const ALLOWED_MAKES: Record<string, string> = {
+  "acura": "Acura",
+  "alfa romeo": "Alfa Romeo",
+  "aston martin": "Aston Martin",
+  "audi": "Audi",
+  "bmw": "BMW",
+  "bentley": "Bentley",
+  "buick": "Buick",
+  "cadillac": "Cadillac",
+  "chevrolet": "Chevrolet",
+  "chrysler": "Chrysler",
+  "dodge": "Dodge",
+  "ferrari": "Ferrari",
+  "fiat": "Fiat",
+  "ford": "Ford",
+  "genesis": "Genesis",
+  "gmc": "GMC",
+  "honda": "Honda",
+  "hyundai": "Hyundai",
+  "infiniti": "Infiniti",
+  "jaguar": "Jaguar",
+  "jeep": "Jeep",
+  "kia": "Kia",
+  "lamborghini": "Lamborghini",
+  "land rover": "Land Rover",
+  "lexus": "Lexus",
+  "lincoln": "Lincoln",
+  "lotus": "Lotus",
+  "maserati": "Maserati",
+  "mazda": "Mazda",
+  "mclaren": "McLaren",
+  "mercedes-benz": "Mercedes-Benz",
+  "mini": "MINI",
+  "mitsubishi": "Mitsubishi",
+  "nissan": "Nissan",
+  "peugeot": "Peugeot",
+  "pontiac": "Pontiac",
+  "porsche": "Porsche",
+  "ram": "RAM",
+  "rivian": "Rivian",
+  "rolls-royce": "Rolls-Royce",
+  "saab": "Saab",
+  "saturn": "Saturn",
+  "scion": "Scion",
+  "subaru": "Subaru",
+  "suzuki": "Suzuki",
+  "tesla": "Tesla",
+  "toyota": "Toyota",
+  "volkswagen": "Volkswagen",
+  "volvo": "Volvo",
+};
 
 export async function getAllMakes(): Promise<VehicleMake[]> {
   try {
@@ -19,11 +60,19 @@ export async function getAllMakes(): Promise<VehicleMake[]> {
       { next: { revalidate: 604800 } } // 7-day cache
     );
     const data = await res.json();
+    const seen = new Set<string>();
     const makes: VehicleMake[] = data.Results
-      .filter((m: { Make_Name: string }) => ALLOWED_MAKES.has(m.Make_Name))
+      .filter((m: { Make_Name: string }) => {
+        const key = m.Make_Name.toLowerCase();
+        if (ALLOWED_MAKES[key] && !seen.has(key)) {
+          seen.add(key);
+          return true;
+        }
+        return false;
+      })
       .map((m: { Make_ID: number; Make_Name: string }) => ({
         id: m.Make_ID,
-        name: m.Make_Name,
+        name: ALLOWED_MAKES[m.Make_Name.toLowerCase()] || m.Make_Name,
       }))
       .sort((a: VehicleMake, b: VehicleMake) => a.name.localeCompare(b.name));
     return makes;
