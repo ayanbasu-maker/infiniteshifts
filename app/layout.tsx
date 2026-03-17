@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Infinite Shifts | Cars, Builds & Automotive Content",
+  title: "Infinite Shifts | Cars & Automotive Content",
   description:
-    "Follow the Infinite Shifts journey — cars, builds, and everything automotive.",
+    "Follow the Infinite Shifts journey — cars and everything automotive.",
   openGraph: {
     title: "Infinite Shifts",
-    description: "Cars, builds, and everything automotive.",
+    description: "Cars and everything automotive.",
     type: "website",
   },
 };
