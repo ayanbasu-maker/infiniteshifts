@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const vehicles: GarageVehicle[] = [
   {
     name: "1997 Pontiac Grand Prix",
-    image: "/garage/pontiac-grand-prix.jpg",
+    image: "/garage/pontiac grand prix.png",
     status: "sold",
     sold: 4500,
     description: "My first car. Loved every mile of it. Sold it at 108K miles — one of those cars you never forget.",
@@ -49,7 +49,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2012 Volkswagen Passat",
-    image: "/garage/vw-passat.jpg",
+    image: "/garage/volkswagen passat.png",
     status: "sold",
     bought: 16000,
     sold: 4000,
@@ -57,7 +57,7 @@ const vehicles: GarageVehicle[] = [
   },
   {
     name: "2015 BMW 328i",
-    image: "/garage/bmw-328i.jpg",
+    image: "/garage/2015 bmw.png",
     status: "sold",
     bought: 27000,
     sold: 11000,
