@@ -22,7 +22,7 @@ export default function Navbar() {
             About
           </Link>
           <Link href="/garage" className="text-sm font-medium hover:text-brand-gold transition-colors">
-            My Garage
+            Cars I've Owned
           </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"
@@ -56,7 +56,7 @@ export default function Navbar() {
             About
           </Link>
           <Link href="/garage" onClick={() => setMenuOpen(false)} className="text-sm font-medium hover:text-brand-gold transition-colors">
-            My Garage
+            Cars I've Owned
           </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"

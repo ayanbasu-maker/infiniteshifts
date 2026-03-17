@@ -3,8 +3,8 @@ import GarageCard from "@/components/GarageCard";
 import { GarageVehicle } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "My Garage | Infinite Shifts",
-  description: "Every car I've owned — what I paid, what I sold it for, and whether it was worth it.",
+  title: "Cars I've Owned | Infinite Shifts",
+  description: "A history of every car I've owned — what I paid, what I sold it for, and the stories behind each one.",
 };
 
 const vehicles: GarageVehicle[] = [
@@ -114,10 +114,10 @@ export default function GaragePage() {
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">My Garage</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-2">Cars I&apos;ve Owned</h1>
         <div className="w-12 h-1 bg-brand-gold rounded mb-4" />
         <p className="text-neutral-400 text-lg mb-10">
-          Every car I&apos;ve owned, every one with a story. This is the collection.
+          Here&apos;s all the cars I&apos;ve owned — some were quick flips, others stuck around for years. They&apos;re all gone now except a few, but every single one has a story.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
