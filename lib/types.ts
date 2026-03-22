@@ -48,3 +48,25 @@ export interface PricingTrend {
   confidenceReason: string;
   dataSource: string;
 }
+
+export interface CarRecommendation {
+  year: number;
+  make: string;
+  model: string;
+  currentAvg: number;
+  projectedDirection: "up" | "down" | "stable";
+  projectedChangePercent: number;
+  confidence: "low" | "medium" | "high";
+  depreciationPercent: number;
+  msrp: number;
+  valueScore: number;
+  reason: string;
+}
+
+export interface RecommendationPreferences {
+  budget: number;
+  carType: "any" | "sedan" | "suv" | "coupe" | "truck" | "sports" | "luxury";
+  priority: "best-value" | "appreciating" | "lowest-depreciation" | "most-car-for-money";
+  yearMin?: number;
+  yearMax?: number;
+}

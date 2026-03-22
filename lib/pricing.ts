@@ -1,4 +1,4 @@
-import type { PriceDataPoint, PricingTrend } from "./types";
+import type { PriceDataPoint, PricingTrend, CarRecommendation, RecommendationPreferences } from "./types";
 import seedData from "@/data/pricing/seed.json";
 
 type SeedEntry = {
@@ -650,4 +650,305 @@ export function getPricingData(
 
   // No seed data — generate estimated data
   return generatePricingData(year, make, model, timeframe);
+}
+
+// ── Car type classification ───────────────────────────────────────────
+const CAR_TYPE_MAP: Record<string, string[]> = {
+  sedan: [
+    "Civic", "Civic Sport", "Civic Si", "Accord", "Accord Sport", "Corolla", "Camry", "Camry TRD", "Camry XSE",
+    "Altima", "Maxima", "Sentra", "Impreza", "Legacy GT", "WRX", "WRX STI", "WRX STI S209", "WRX STI Type RA",
+    "3 Series", "320i", "328i", "330i", "M340i", "M3", "M3 Competition",
+    "A3", "A4", "S3", "S4", "RS 3",
+    "C 300", "C 43 AMG", "C 63 AMG", "C 63 S AMG", "E 300", "E 350", "E 450", "E 53 AMG", "E 63 AMG", "E 63 S AMG",
+    "S 450", "S 500", "S 550", "S 580", "S 63 AMG",
+    "IS 250", "IS 300", "IS 350", "IS 350 F Sport", "IS 500", "IS F", "GS 350", "GS F", "LS 400", "LS 500",
+    "Model 3", "Model 3 Performance", "Model 3 Long Range", "Model S", "Model S Plaid",
+    "Charger", "Charger R/T", "Charger R/T Scat Pack", "Charger SRT Hellcat", "Charger SRT Hellcat Redeye",
+    "CTS-V", "CT4-V Blackwing", "CT5-V Blackwing", "ATS-V",
+    "Giulia", "Giulia Quadrifoglio", "Stinger", "Stinger GT",
+    "G8 GXP", "GTO", "Lancer Evolution", "Jetta GLI",
+    "TL", "TL Type S", "TLX", "TLX Type S", "ILX", "Integra", "Integra Type S",
+  ],
+  coupe: [
+    "Civic Type R", "BRZ", "BRZ tS", "GR86", "86",
+    "M2", "M2 Competition", "M4", "M4 Competition", "M4 CS", "M4 GTS", "M8", "M8 Competition",
+    "A5", "RS 5", "TT", "TT RS", "R8", "R8 V10",
+    "RC 350", "RC F", "RC F Track Edition", "LC 500", "LFA",
+    "Mustang", "Mustang GT", "Mustang Shelby GT350", "Mustang Shelby GT500", "Mustang Dark Horse",
+    "Camaro", "Camaro SS", "Camaro ZL1", "Camaro Z/28",
+    "Challenger", "Challenger R/T", "Challenger R/T Scat Pack", "Challenger SRT Hellcat", "Challenger SRT Demon",
+    "Corvette", "Corvette Stingray", "Corvette Z06", "Corvette ZR1", "Corvette Grand Sport",
+    "370Z", "370Z Nismo", "350Z", "300ZX", "Z", "Z Nismo",
+    "S2000", "S2000 CR", "NSX", "NSX Type S", "Prelude", "del Sol",
+    "Supra", "Supra Turbo", "GR Supra", "MR2",
+    "RX-7", "RX-7 Turbo", "RX-8", "MX-5 Miata", "MX-5 Miata RF",
+    "Z3", "Z4", "Z4 M40i", "Z8", "i8",
+    "GT-R", "GT-R Nismo",
+    "4C", "4C Spider",
+    "Viper", "Viper GTS", "Viper ACR",
+    "AMG GT", "AMG GT S", "AMG GT R", "SLS AMG",
+    "911 Carrera", "911 Turbo", "911 GT3", "911 GT3 RS",
+    "Cayman", "Cayman S", "718 Cayman GT4", "718 Cayman GT4 RS",
+    "Boxster", "Boxster S", "718 Boxster Spyder",
+    "F-Type R", "F-Type SVR",
+    "Veloster N", "Veloster Turbo", "Golf R", "Golf GTI",
+    "Cooper S", "John Cooper Works",
+    "Emira", "Exige", "Elise", "Evora",
+  ],
+  suv: [
+    "CR-V", "HR-V", "Pilot", "Passport",
+    "RAV4", "Highlander", "4Runner", "4Runner TRD Pro", "Sequoia", "Land Cruiser", "FJ Cruiser",
+    "Rogue", "Pathfinder", "Murano",
+    "Forester", "Outback", "Crosstrek",
+    "X3", "X3 M", "X5", "X5 M", "X6", "X7", "XM",
+    "Q3", "Q5", "SQ5", "Q7", "SQ7", "Q8", "RS Q8",
+    "GLA 250", "GLB 250", "GLC 300", "GLC 63 AMG", "GLE 350", "GLE 63 AMG", "GLS 450", "GLS 63 AMG",
+    "G 550", "G 63 AMG",
+    "RX 350", "NX 350", "GX 460", "GX 550", "LX 570", "LX 600",
+    "Model Y", "Model Y Performance", "Model X", "Model X Plaid",
+    "Cayenne", "Cayenne Turbo", "Macan", "Macan GTS",
+    "Tahoe", "Suburban", "Blazer", "Equinox",
+    "Explorer", "Expedition", "Escape", "Bronco", "Bronco Raptor", "Bronco Sport",
+    "Grand Cherokee Trackhawk", "Grand Cherokee SRT", "Wrangler", "Wrangler Rubicon 392",
+    "Durango", "Durango SRT", "Durango SRT Hellcat",
+    "MDX", "RDX", "RDX A-Spec",
+    "Stelvio", "Stelvio Quadrifoglio",
+    "Range Rover Sport SVR", "Defender V8",
+    "Urus Performante",
+    "Escalade-V",
+    "Cullinan Black Badge",
+    "Bentayga Speed",
+  ],
+  truck: [
+    "F-150", "F-150 Raptor", "F-150 Raptor R", "F-150 Lightning",
+    "Silverado 1500", "Silverado 1500 ZR2", "Silverado 2500HD",
+    "Tacoma", "Tacoma TRD Pro", "Tacoma TRD Off-Road",
+    "Tundra", "Tundra TRD Pro",
+    "Ranger", "Ranger Raptor",
+    "Colorado", "Colorado ZR2",
+    "Frontier", "Ridgeline", "Maverick",
+    "1500 TRX",
+    "Cybertruck",
+  ],
+  sports: [
+    "S2000", "S2000 CR", "NSX", "NSX Type S",
+    "Supra", "Supra Turbo", "GR Supra", "GR Corolla", "GR Corolla Morizo", "GR86",
+    "GT-R", "GT-R Nismo",
+    "Civic Type R", "Civic Si",
+    "M2", "M2 Competition", "M3", "M3 Competition", "M4", "M4 Competition", "M4 CS", "M4 GTS", "M5 CS",
+    "911 GT3", "911 GT3 RS", "911 GT2 RS", "911 Turbo S", "918 Spyder", "Carrera GT",
+    "718 Cayman GT4", "718 Cayman GT4 RS",
+    "R8", "R8 V10", "RS 3", "RS 5", "RS 6 Avant", "RS 7", "TT RS",
+    "AMG GT R", "C 63 AMG", "E 63 AMG",
+    "IS F", "LFA", "RC F", "GS F", "LC 500",
+    "Corvette Z06", "Corvette ZR1", "Camaro ZL1", "Camaro Z/28",
+    "Mustang Shelby GT350", "Mustang Shelby GT500",
+    "Challenger SRT Hellcat", "Challenger SRT Demon", "Charger SRT Hellcat",
+    "Viper", "Viper ACR",
+    "WRX STI", "WRX STI S209", "BRZ",
+    "370Z Nismo", "Z Nismo", "300ZX Turbo",
+    "Focus RS", "Golf R", "Veloster N",
+    "CTS-V", "CT4-V Blackwing", "CT5-V Blackwing", "ATS-V",
+    "Giulia Quadrifoglio", "4C",
+    "F-Type R", "F-Type SVR",
+    "Lancer Evolution",
+    "MX-5 Miata", "RX-7", "Mazdaspeed3",
+    "Cooper S", "John Cooper Works",
+    "Emira", "Exige", "Elise", "Evora",
+    "GT", "F-150 Raptor R", "Bronco Raptor",
+  ],
+  luxury: [
+    "S 450", "S 500", "S 580", "S 63 AMG", "S 65 AMG",
+    "Maybach S 580", "Maybach S 680", "Maybach GLS 600",
+    "740i", "750i", "M850i",
+    "A8", "A8 L", "S8",
+    "LS 400", "LS 430", "LS 460", "LS 500", "LC 500",
+    "Continental GT", "Continental GT Speed", "Flying Spur Speed",
+    "Phantom", "Ghost", "Ghost Black Badge", "Wraith Black Badge", "Cullinan Black Badge",
+    "G 550", "G 63 AMG", "G 65 AMG", "GLS 63 AMG",
+    "Escalade-V",
+    "Panamera", "Panamera Turbo S", "Cayenne Turbo GT",
+    "Range Rover Sport SVR", "Defender V8",
+    "DB11", "DBS Superleggera", "Rapide S",
+    "Model S Plaid", "Model X Plaid",
+  ],
+};
+
+function getCarType(model: string): string {
+  for (const [type, models] of Object.entries(CAR_TYPE_MAP)) {
+    if (models.includes(model)) return type;
+  }
+  return "any";
+}
+
+// ── Recommendation engine ─────────────────────────────────────────────
+export function getRecommendations(prefs: RecommendationPreferences): CarRecommendation[] {
+  const { budget, carType, priority, yearMin = 1990, yearMax = 2026 } = prefs;
+  const candidates: CarRecommendation[] = [];
+
+  // Import vehicle data inline to avoid circular deps
+  const { VEHICLE_DATA } = require("./vehicles");
+
+  // Scan all vehicles for matching candidates
+  for (const [make, models] of Object.entries(VEHICLE_DATA) as [string, Record<string, string[]>][]) {
+    for (const [, trims] of Object.entries(models)) {
+      for (const trim of trims) {
+        // Get MSRP for this model
+        const makeInfo = MAKE_TIERS[make] || { tier: "mid", baseMsrp: 35000 };
+        const msrp = MODEL_MSRP_OVERRIDES[trim] || makeInfo.baseMsrp;
+
+        // Check car type filter
+        if (carType !== "any") {
+          const modelType = getCarType(trim);
+          if (modelType !== carType && modelType !== "any") continue;
+        }
+
+        // Test a range of years to find ones in budget
+        for (let year = Math.max(yearMin, 2000); year <= yearMax; year += 2) {
+          const vehicleAge = 2026 - year;
+
+          // Quick depreciation calc (same as generatePricingData)
+          let currentValue = msrp;
+          for (let y = 0; y < vehicleAge; y++) {
+            if (y === 0) currentValue *= 0.82;
+            else if (y === 1) currentValue *= 0.85;
+            else if (y === 2) currentValue *= 0.88;
+            else if (y <= 4) currentValue *= 0.92;
+            else currentValue *= 0.95;
+          }
+          const floor = msrp * 0.12;
+          if (currentValue < floor) currentValue = floor;
+
+          const isAppreciating = APPRECIATING_MODELS.has(trim);
+          if (isAppreciating && vehicleAge > 5) {
+            const appreciationYears = Math.min(vehicleAge - 5, 15);
+            currentValue *= (1 + 0.04 * appreciationYears);
+          }
+          currentValue = Math.round(currentValue / 500) * 500;
+
+          // Budget filter — within 20% above budget too (stretch picks)
+          if (currentValue > budget * 1.2) continue;
+          if (currentValue < budget * 0.15) continue; // Too cheap relative to budget
+
+          const depreciationPercent = Math.round((1 - currentValue / msrp) * 100);
+
+          // Generate trend for scoring
+          const seed = hashCode(`${year}-${make}-${trim}`);
+          const rng = seededRandom(seed);
+
+          let monthlyTrend: number;
+          if (isAppreciating && vehicleAge > 5) {
+            monthlyTrend = 0.003 + rng() * 0.005;
+          } else if (vehicleAge <= 3) {
+            monthlyTrend = -(0.008 + rng() * 0.005);
+          } else if (vehicleAge <= 8) {
+            monthlyTrend = -(0.003 + rng() * 0.004);
+          } else {
+            monthlyTrend = -(0.001 + rng() * 0.003);
+          }
+
+          const projectedChangePercent = Math.round(monthlyTrend * 12 * 1000) / 10;
+          let projectedDirection: "up" | "down" | "stable";
+          if (projectedChangePercent > 2) projectedDirection = "up";
+          else if (projectedChangePercent < -2) projectedDirection = "down";
+          else projectedDirection = "stable";
+
+          // Confidence
+          let baseListings: number;
+          if (makeInfo.tier === "economy") baseListings = 300;
+          else if (makeInfo.tier === "mid") baseListings = 150;
+          else if (makeInfo.tier === "premium") baseListings = 50;
+          else baseListings = 20;
+          if (vehicleAge > 15) baseListings *= 0.3;
+          else if (vehicleAge > 10) baseListings *= 0.5;
+          const { confidence } = getEstimatedConfidence(make, trim, year, vehicleAge, makeInfo.tier, baseListings);
+
+          // Calculate value score based on priority
+          let valueScore = 0;
+          const budgetUtilization = currentValue / budget; // how much of budget used (0-1.2)
+
+          switch (priority) {
+            case "best-value":
+              // High MSRP relative to current price = great value
+              valueScore = (msrp / currentValue) * 10;
+              // Bonus for cars closer to budget (using more of it)
+              if (budgetUtilization > 0.5 && budgetUtilization <= 1) valueScore *= 1.3;
+              // Bonus for appreciating
+              if (isAppreciating) valueScore *= 1.2;
+              // Bonus for high confidence
+              if (confidence === "high") valueScore *= 1.1;
+              break;
+
+            case "appreciating":
+              // Only care about cars going up in value
+              if (!isAppreciating) { valueScore = 0; continue; }
+              valueScore = 50 + projectedChangePercent * 5;
+              if (budgetUtilization > 0.5 && budgetUtilization <= 1) valueScore *= 1.2;
+              break;
+
+            case "lowest-depreciation":
+              // Cars that will hold value best going forward
+              valueScore = 50 + projectedChangePercent * 3;
+              if (isAppreciating) valueScore *= 1.5;
+              // Penalize heavy recent depreciation
+              if (vehicleAge <= 3) valueScore *= 0.5;
+              break;
+
+            case "most-car-for-money":
+              // Highest original MSRP for the budget
+              valueScore = msrp / budget * 10;
+              // Within budget is better
+              if (budgetUtilization > 0.7 && budgetUtilization <= 1) valueScore *= 1.5;
+              else if (budgetUtilization > 1) valueScore *= 0.8;
+              break;
+          }
+
+          if (valueScore <= 0) continue;
+
+          // Build reason
+          let reason = "";
+          const savingsPercent = Math.round((1 - currentValue / msrp) * 100);
+          if (priority === "best-value") {
+            reason = `Originally $${msrp.toLocaleString()} MSRP — now ${savingsPercent}% off. ${isAppreciating ? "Enthusiast car that tends to hold or gain value." : "Strong depreciation makes this a great deal."}`;
+          } else if (priority === "appreciating") {
+            reason = `Trending ${projectedDirection} — projected ${projectedChangePercent > 0 ? "+" : ""}${projectedChangePercent}% over the next year. Collector/enthusiast demand keeps values strong.`;
+          } else if (priority === "lowest-depreciation") {
+            reason = `${isAppreciating ? "Enthusiast favorite with strong value retention." : "Relatively stable pricing."} Projected ${projectedDirection} — ${projectedChangePercent > 0 ? "+" : ""}${projectedChangePercent}% annual trend.`;
+          } else {
+            reason = `Originally $${msrp.toLocaleString()} — that's ${savingsPercent}% depreciation. Maximum car for your budget.`;
+          }
+
+          candidates.push({
+            year,
+            make,
+            model: trim,
+            currentAvg: currentValue,
+            projectedDirection,
+            projectedChangePercent,
+            confidence,
+            depreciationPercent,
+            msrp,
+            valueScore: Math.round(valueScore * 10) / 10,
+            reason,
+          });
+        }
+      }
+    }
+  }
+
+  // Sort by value score descending, take top 10
+  candidates.sort((a, b) => b.valueScore - a.valueScore);
+
+  // Deduplicate — only keep best year for each make+model
+  const seen = new Set<string>();
+  const results: CarRecommendation[] = [];
+  for (const c of candidates) {
+    const key = `${c.make}-${c.model}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    results.push(c);
+    if (results.length >= 10) break;
+  }
+
+  return results;
 }
