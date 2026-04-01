@@ -77,18 +77,18 @@ export default function AffordabilityCalculator() {
         return [
           {
             label: "Conservative",
-            description: "Dave Ramsey 10% rule — zero financial stress",
-            maxPrice: inputValue * 0.10 / feesMultiplier,
-          },
-          {
-            label: "Moderate",
-            description: "Common financial advice — balanced approach",
+            description: "20% of gross salary — financially sound choice",
             maxPrice: inputValue * 0.20 / feesMultiplier,
           },
           {
+            label: "Moderate",
+            description: "30% of gross salary — balanced approach",
+            maxPrice: inputValue * 0.30 / feesMultiplier,
+          },
+          {
             label: "Aggressive",
-            description: "Upper bound — still manageable for high earners",
-            maxPrice: inputValue * 0.35 / feesMultiplier,
+            description: "40% of gross salary — upper bound for high earners",
+            maxPrice: inputValue * 0.40 / feesMultiplier,
           },
         ];
       } else {
@@ -171,7 +171,7 @@ export default function AffordabilityCalculator() {
     if (!hasInput || !results) return null;
     const mod = results[1];
     if (mode === "cash") {
-      return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline suggests staying under ${formatCurrency(mod.maxPrice)} for a cash purchase.`;
+      return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline (30%) suggests staying under ${formatCurrency(mod.maxPrice)} for a cash purchase.`;
     } else {
       return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline puts your car price at ${formatCurrency(mod.maxPrice)} with a ~${formatCurrency(mod.monthlyPayment!)}/mo payment.`;
     }
