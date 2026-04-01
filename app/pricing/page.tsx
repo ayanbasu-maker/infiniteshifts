@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import PricingPageContent from "@/components/PricingPageContent";
 
 export const metadata: Metadata = {
-  title: "Car Pricing Trends & Recommendations | Infinite Shifts",
+  title: "How Much Car Can I Afford? | Infinite Shifts",
   description:
-    "Track used car pricing trends, find the best time to buy, and get personalized car recommendations based on your budget and preferences.",
+    "Find out how much car you can afford based on your salary or net worth. Calculate cash purchase limits and monthly payment budgets using proven financial guidelines.",
 };
 
 export default function PricingPage() {
