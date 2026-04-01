@@ -20,12 +20,6 @@ function parseInput(val: string): number {
   return Number(val.replace(/[^0-9.]/g, "")) || 0;
 }
 
-function formatInput(val: string): string {
-  const num = parseInput(val);
-  if (!num) return val;
-  return new Intl.NumberFormat("en-US").format(num);
-}
-
 // Standard amortization: monthly payment for a loan
 function monthlyPayment(principal: number, annualRate: number, months: number): number {
   if (annualRate === 0) return principal / months;
@@ -33,12 +27,6 @@ function monthlyPayment(principal: number, annualRate: number, months: number): 
   return (principal * r) / (1 - Math.pow(1 + r, -months));
 }
 
-// Max loan amount given a monthly payment budget
-function maxLoanFromPayment(payment: number, annualRate: number, months: number): number {
-  if (annualRate === 0) return payment * months;
-  const r = annualRate / 100 / 12;
-  return (payment * (1 - Math.pow(1 + r, -months))) / r;
-}
 
 interface TierResult {
   label: string;
@@ -58,8 +46,6 @@ export default function AffordabilityCalculator() {
   const [displayInput, setDisplayInput] = useState("");
 
   // Tweakable params
-  const [taxRate, setTaxRate] = useState(25);
-  const [paymentPct, setPaymentPct] = useState(15);
   const [downPct, setDownPct] = useState(20);
   const [loanTerm, setLoanTerm] = useState(60);
   const [interestRate, setInterestRate] = useState(7);
@@ -68,95 +54,53 @@ export default function AffordabilityCalculator() {
   const inputValue = parseInput(rawInput);
   const hasInput = inputValue > 0;
 
+  // Tier definitions — same car price targets for both cash and financing
+  function getTierPrices(val: number, type: InputType, feesMultiplier: number) {
+    if (type === "salary") {
+      return [
+        { label: "Conservative", pct: 0.20, description: "20% of gross salary — financially sound choice" },
+        { label: "Moderate",     pct: 0.30, description: "30% of gross salary — balanced approach" },
+        { label: "Aggressive",   pct: 0.40, description: "40% of gross salary — upper bound for high earners" },
+      ].map(t => ({ ...t, carPrice: (val * t.pct) / feesMultiplier }));
+    } else {
+      return [
+        { label: "Conservative", pct: 0.05, description: "Wealth-preserving — 5% of liquid net worth" },
+        { label: "Moderate",     pct: 0.10, description: "Balanced — 10% of net worth" },
+        { label: "Aggressive",   pct: 0.20, description: "Liberal — 20% of net worth" },
+      ].map(t => ({ ...t, carPrice: (val * t.pct) / feesMultiplier }));
+    }
+  }
+
   const results: TierResult[] | null = useMemo(() => {
     if (!hasInput) return null;
     const feesMultiplier = includeFees ? 1.1 : 1.0;
+    const tiers = getTierPrices(inputValue, inputType, feesMultiplier);
 
     if (mode === "cash") {
-      if (inputType === "salary") {
-        return [
-          {
-            label: "Conservative",
-            description: "20% of gross salary — financially sound choice",
-            maxPrice: inputValue * 0.20 / feesMultiplier,
-          },
-          {
-            label: "Moderate",
-            description: "30% of gross salary — balanced approach",
-            maxPrice: inputValue * 0.30 / feesMultiplier,
-          },
-          {
-            label: "Aggressive",
-            description: "40% of gross salary — upper bound for high earners",
-            maxPrice: inputValue * 0.40 / feesMultiplier,
-          },
-        ];
-      } else {
-        // Net worth
-        return [
-          {
-            label: "Conservative",
-            description: "Wealth-preserving — 5% of liquid net worth",
-            maxPrice: inputValue * 0.05 / feesMultiplier,
-          },
-          {
-            label: "Moderate",
-            description: "Balanced — 10% of net worth",
-            maxPrice: inputValue * 0.10 / feesMultiplier,
-          },
-          {
-            label: "Aggressive",
-            description: "Liberal — 20% of net worth",
-            maxPrice: inputValue * 0.20 / feesMultiplier,
-          },
-        ];
-      }
+      return tiers.map(({ label, description, carPrice }) => ({
+        label,
+        description,
+        maxPrice: carPrice,
+      }));
     } else {
-      // Financing mode
-      const multipliers =
-        inputType === "salary"
-          ? [0.10, 0.15, 0.20] // % of take-home for payment: conservative / moderate / aggressive
-          : [0.10, 0.15, 0.20]; // same scale for net-worth based
-
-      const tierDefs = [
-        { label: "Conservative", description: "10% of take-home — plenty of breathing room", pctOverride: 0.10 },
-        { label: "Moderate", description: "15% of take-home — the 20/4/10 sweet spot", pctOverride: paymentPct / 100 },
-        { label: "Aggressive", description: "20% of take-home — tight but doable", pctOverride: 0.20 },
-      ];
-
-      return tierDefs.map(({ label, description, pctOverride }) => {
-        let maxMonthlyPayment: number;
-
-        if (inputType === "salary") {
-          const monthlyTakeHome = (inputValue / 12) * (1 - taxRate / 100);
-          maxMonthlyPayment = monthlyTakeHome * pctOverride;
-        } else {
-          // Net worth: assume can service ~2% of net worth per year on a car payment
-          const annualPaymentBudget = inputValue * 0.02 * (pctOverride / 0.15);
-          maxMonthlyPayment = annualPaymentBudget / 12;
-        }
-
-        const loanAmt = maxLoanFromPayment(maxMonthlyPayment, interestRate, loanTerm);
-        const downAmt = (loanAmt / (1 - downPct / 100)) * (downPct / 100);
-        const rawCarPrice = loanAmt + downAmt;
-        const maxPrice = rawCarPrice / feesMultiplier;
-        const actualMonthly = monthlyPayment(loanAmt, interestRate, loanTerm);
-        const totalPaid = actualMonthly * loanTerm + downAmt;
-        const totalInterest = actualMonthly * loanTerm - loanAmt;
-
+      return tiers.map(({ label, description, carPrice }) => {
+        const downAmt = carPrice * (downPct / 100);
+        const loanAmt = carPrice - downAmt;
+        const monthly = monthlyPayment(loanAmt, interestRate, loanTerm);
+        const totalInterest = monthly * loanTerm - loanAmt;
         return {
           label,
           description,
-          maxPrice,
-          monthlyPayment: actualMonthly,
+          maxPrice: carPrice,
+          monthlyPayment: monthly,
           totalInterest,
-          totalCost: totalPaid,
+          totalCost: monthly * loanTerm + downAmt,
           downPayment: downAmt,
           loanAmount: loanAmt,
         };
       });
     }
-  }, [hasInput, mode, inputType, inputValue, taxRate, paymentPct, downPct, loanTerm, interestRate, includeFees]);
+  }, [hasInput, mode, inputType, inputValue, downPct, loanTerm, interestRate, includeFees]);
 
   const inputLabel = inputType === "salary" ? "Annual Gross Salary" : "Liquid Net Worth";
   const inputPlaceholder = inputType === "salary" ? "e.g. 80,000" : "e.g. 250,000";
@@ -235,30 +179,6 @@ export default function AffordabilityCalculator() {
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Tax rate — salary + financing */}
-          {inputType === "salary" && mode === "financing" && (
-            <SliderField
-              label="Estimated Tax Rate"
-              value={taxRate}
-              onChange={setTaxRate}
-              min={10} max={45} step={1}
-              format={(v) => `${v}%`}
-              hint="Used to estimate monthly take-home from gross salary"
-            />
-          )}
-
-          {/* Payment % — financing only */}
-          {mode === "financing" && (
-            <SliderField
-              label="Max Payment (% of take-home)"
-              value={paymentPct}
-              onChange={setPaymentPct}
-              min={8} max={25} step={1}
-              format={(v) => `${v}%`}
-              hint="Used for the Moderate tier. Conservative = 10%, Aggressive = 20%"
-            />
-          )}
-
           {/* Down payment — financing only */}
           {mode === "financing" && (
             <SliderField
@@ -309,8 +229,8 @@ export default function AffordabilityCalculator() {
             />
           )}
 
-          {/* Tax/title/fees toggle — always */}
-          <div>
+          {/* Tax/title/fees toggle — cash only */}
+          {mode === "cash" && <div>
             <div className="flex items-center justify-between mb-1">
               <div>
                 <label className="text-sm text-foreground font-medium">Include Tax, Title & Fees</label>
@@ -329,7 +249,7 @@ export default function AffordabilityCalculator() {
                 />
               </button>
             </div>
-          </div>
+          </div>}
         </div>
       </div>
 
