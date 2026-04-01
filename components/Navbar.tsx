@@ -25,7 +25,7 @@ export default function Navbar() {
             Cars I've Owned
           </Link>
           <Link href="/pricing" className="text-sm font-medium hover:text-brand-gold transition-colors">
-            Pricing Trends
+            Car I Can Afford
           </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"
@@ -62,7 +62,7 @@ export default function Navbar() {
             Cars I've Owned
           </Link>
           <Link href="/pricing" onClick={() => setMenuOpen(false)} className="text-sm font-medium hover:text-brand-gold transition-colors">
-            Pricing Trends
+            Car I Can Afford
           </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"
