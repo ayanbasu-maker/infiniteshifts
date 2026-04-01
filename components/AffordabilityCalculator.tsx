@@ -78,11 +78,17 @@ export default function AffordabilityCalculator() {
     }
   }
 
-  // Financing tier defs: payment budget as % of monthly income / net worth
-  const FINANCING_TIERS = [
-    { label: "Conservative", paymentPct: 0.10, nwPct: 0.01, description: "10% of take-home/mo — plenty of breathing room" },
-    { label: "Moderate",     paymentPct: 0.15, nwPct: 0.015, description: "15% of take-home/mo — balanced approach" },
-    { label: "Aggressive",   paymentPct: 0.20, nwPct: 0.02, description: "20% of take-home/mo — upper bound" },
+  // Financing tier defs
+  const SALARY_FINANCING_TIERS = [
+    { label: "Conservative", paymentPct: 0.10, description: "10% of take-home/mo — plenty of breathing room" },
+    { label: "Moderate",     paymentPct: 0.15, description: "15% of take-home/mo — balanced approach" },
+    { label: "Aggressive",   paymentPct: 0.20, description: "20% of take-home/mo — upper bound" },
+  ];
+
+  const NW_FINANCING_TIERS = [
+    { label: "Conservative", nwPct: 0.10, description: "10% of net worth — wealth-preserving" },
+    { label: "Moderate",     nwPct: 0.15, description: "15% of net worth — balanced approach" },
+    { label: "Aggressive",   nwPct: 0.20, description: "20% of net worth — upper bound" },
   ];
 
   const results: TierResult[] | null = useMemo(() => {
@@ -96,37 +102,38 @@ export default function AffordabilityCalculator() {
         description,
         maxPrice: carPrice,
       }));
-    } else {
-      // Work backwards: payment budget → max loan → max car price
-      // Changing down%, rate, or term all move the car price
-      return FINANCING_TIERS.map(({ label, description, paymentPct, nwPct }) => {
-        let monthlyBudget: number;
-        if (inputType === "salary") {
-          const ASSUMED_TAX = 0.25;
-          const monthlyTakeHome = (inputValue / 12) * (1 - ASSUMED_TAX);
-          monthlyBudget = monthlyTakeHome * paymentPct;
-        } else {
-          // net worth: allocate a % of net worth per month
-          monthlyBudget = inputValue * nwPct;
-        }
-
+    } else if (inputType === "salary") {
+      // Salary financing: work backwards from payment budget → max loan → max car price
+      const ASSUMED_TAX = 0.25;
+      const monthlyTakeHome = (inputValue / 12) * (1 - ASSUMED_TAX);
+      return SALARY_FINANCING_TIERS.map(({ label, description, paymentPct }) => {
+        const monthlyBudget = monthlyTakeHome * paymentPct;
         const loanAmt = maxLoanFromPayment(monthlyBudget, interestRate, loanTerm);
-        // down payment covers (downPct%) of total car price, loan covers the rest
         const carPrice = loanAmt / (1 - downPct / 100);
         const maxPrice = carPrice / feesMultiplier;
         const downAmt = carPrice * (downPct / 100);
         const monthly = monthlyPayment(loanAmt, interestRate, loanTerm);
         const totalInterest = monthly * loanTerm - loanAmt;
-
         return {
-          label,
-          description,
-          maxPrice,
-          monthlyPayment: monthly,
-          totalInterest,
+          label, description, maxPrice,
+          monthlyPayment: monthly, totalInterest,
           totalCost: monthly * loanTerm + downAmt,
-          downPayment: downAmt,
-          loanAmount: loanAmt,
+          downPayment: downAmt, loanAmount: loanAmt,
+        };
+      });
+    } else {
+      // Net worth financing: car price = % of net worth, loan params affect payment shown
+      return NW_FINANCING_TIERS.map(({ label, description, nwPct }) => {
+        const carPrice = (inputValue * nwPct) / feesMultiplier;
+        const downAmt = carPrice * (downPct / 100);
+        const loanAmt = carPrice - downAmt;
+        const monthly = monthlyPayment(loanAmt, interestRate, loanTerm);
+        const totalInterest = monthly * loanTerm - loanAmt;
+        return {
+          label, description, maxPrice: carPrice,
+          monthlyPayment: monthly, totalInterest,
+          totalCost: monthly * loanTerm + downAmt,
+          downPayment: downAmt, loanAmount: loanAmt,
         };
       });
     }
