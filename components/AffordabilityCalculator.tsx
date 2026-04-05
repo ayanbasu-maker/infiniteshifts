@@ -65,9 +65,9 @@ export default function AffordabilityCalculator() {
   function getTierPrices(val: number, type: InputType, feesMultiplier: number) {
     if (type === "salary") {
       return [
-        { label: "Conservative", pct: 0.20, description: "20% of gross salary — financially sound choice" },
-        { label: "Moderate",     pct: 0.30, description: "30% of gross salary — balanced approach" },
-        { label: "Aggressive",   pct: 0.40, description: "40% of gross salary — upper bound for high earners" },
+        { label: "Conservative", pct: 0.25, description: "25% of gross salary — cautious, per mainstream advice" },
+        { label: "Moderate",     pct: 0.35, description: "35% of gross salary — aligns with the 20/4/10 rule" },
+        { label: "Aggressive",   pct: 0.50, description: "50% of gross salary — Dave Ramsey's take-home ceiling" },
       ].map(t => ({ ...t, carPrice: (val * t.pct) / feesMultiplier }));
     } else {
       return [
@@ -152,7 +152,7 @@ export default function AffordabilityCalculator() {
     if (!hasInput || !results) return null;
     const mod = results[1];
     if (mode === "cash") {
-      return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline (30%) suggests staying under ${formatCurrency(mod.maxPrice)} for a cash purchase.`;
+      return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline (35%) suggests staying under ${formatCurrency(mod.maxPrice)} for a cash purchase.`;
     } else {
       return `At ${formatCurrency(inputValue)} ${inputType === "salary" ? "annual salary" : "net worth"}, the moderate guideline puts your car price at ${formatCurrency(mod.maxPrice)} with a ~${formatCurrency(mod.monthlyPayment!)}/mo payment.`;
     }
