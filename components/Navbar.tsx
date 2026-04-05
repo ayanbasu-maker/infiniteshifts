@@ -27,6 +27,9 @@ export default function Navbar() {
           <Link href="/pricing" className="text-sm font-medium hover:text-brand-gold transition-colors">
             How Much Car Can I Afford
           </Link>
+          <Link href="/contact" className="text-sm font-medium hover:text-brand-gold transition-colors">
+            Contact
+          </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"
             target="_blank"
@@ -63,6 +66,9 @@ export default function Navbar() {
           </Link>
           <Link href="/pricing" onClick={() => setMenuOpen(false)} className="text-sm font-medium hover:text-brand-gold transition-colors">
             How Much Car Can I Afford
+          </Link>
+          <Link href="/contact" onClick={() => setMenuOpen(false)} className="text-sm font-medium hover:text-brand-gold transition-colors">
+            Contact
           </Link>
           <a
             href="https://www.youtube.com/@infiniteshifts1"
