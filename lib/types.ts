@@ -3,6 +3,8 @@ export interface Video {
   title: string;
   thumbnail: string;
   publishedAt: string;
+  isShort?: boolean;
+  durationSeconds?: number;
 }
 
 export interface GarageVehicle {

@@ -9,9 +9,12 @@ export default function VideoCard({ video }: { video: Video }) {
     day: "numeric",
   });
 
+  const isShort = video.isShort === true;
+
   const content = (
     <div className="group bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-brand-gold/50 transition-all duration-300 hover:scale-[1.02]">
-      <div className="relative aspect-video bg-neutral-800">
+      {/* Shorts use 9:16, long-form use 16:9 */}
+      <div className={`relative bg-neutral-800 ${isShort ? "aspect-[9/16]" : "aspect-video"}`}>
         {video.thumbnail ? (
           <Image
             src={video.thumbnail}
@@ -27,6 +30,12 @@ export default function VideoCard({ video }: { video: Video }) {
             </svg>
           </div>
         )}
+        {/* Shorts badge */}
+        {isShort && (
+          <span className="absolute top-2 left-2 bg-brand-gold text-black text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+            Short
+          </span>
+        )}
       </div>
       <div className="p-4">
         <h3 className="font-semibold text-sm line-clamp-2 mb-2 group-hover:text-brand-gold transition-colors">
@@ -39,12 +48,13 @@ export default function VideoCard({ video }: { video: Video }) {
 
   if (isPlaceholder) return content;
 
+  // Shorts link to the /shorts/ URL for proper mobile experience
+  const url = isShort
+    ? `https://www.youtube.com/shorts/${video.id}`
+    : `https://www.youtube.com/watch?v=${video.id}`;
+
   return (
-    <a
-      href={`https://www.youtube.com/watch?v=${video.id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <a href={url} target="_blank" rel="noopener noreferrer">
       {content}
     </a>
   );
