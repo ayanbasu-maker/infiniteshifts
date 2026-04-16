@@ -12,6 +12,8 @@ export default function ContactForm() {
       <input type="hidden" name="_subject" value="New message from Infinite Shifts" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
+      {/* Honeypot — invisible to humans, bots fill it in and FormSubmit discards the submission */}
+      <input type="text" name="_honey" style={{ display: "none" }} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
