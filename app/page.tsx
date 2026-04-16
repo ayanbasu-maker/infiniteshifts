@@ -11,20 +11,12 @@ export default async function Home() {
   ]);
 
   const latestLong = latestVideos.filter((v) => !v.isShort);
-  const latestShorts = latestVideos.filter((v) => v.isShort);
   const popularLong = popularVideos.filter((v) => !v.isShort);
 
   return (
     <>
       <Hero viewCount={viewCount} />
       <VideoSection title="Latest Videos" videos={latestLong.slice(0, 6)} />
-      {latestShorts.length > 0 && (
-        <VideoSection
-          title="Latest Shorts"
-          videos={latestShorts.slice(0, 6)}
-          isShorts
-        />
-      )}
       <VideoSection title="Most Popular" videos={popularLong.slice(0, 6)} />
       <EmailSignup />
     </>

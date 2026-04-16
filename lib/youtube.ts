@@ -4,8 +4,8 @@ const API_KEY = process.env.YOUTUBE_API_KEY;
 const CHANNEL_HANDLE = "infiniteshifts1";
 const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";
 
-// Shorts are ≤ 60 seconds
-const SHORTS_MAX_SECONDS = 60;
+// YouTube Shorts can be up to 3 minutes (180 seconds)
+const SHORTS_MAX_SECONDS = 180;
 
 let cachedChannelId: string | null = null;
 
@@ -50,6 +50,29 @@ async function fetchDurations(ids: string[]): Promise<Record<string, number>> {
   return map;
 }
 
+type SearchItem = {
+  id: { videoId: string };
+  snippet: {
+    title: string;
+    thumbnails: { high: { url: string } };
+    publishedAt: string;
+  };
+};
+
+async function searchVideos(
+  order: "date" | "viewCount",
+  count: number,
+  videoDuration: "medium" | "long" | "any" = "any"
+): Promise<SearchItem[]> {
+  const durationParam = videoDuration !== "any" ? `&videoDuration=${videoDuration}` : "";
+  const res = await fetch(
+    `${YOUTUBE_API_BASE}/search?part=snippet&channelId=${await getChannelId()}&order=${order}&type=video${durationParam}&maxResults=${count}&key=${API_KEY}`,
+    { next: { revalidate: 3600 } }
+  );
+  const data = await res.json();
+  return data.items ?? [];
+}
+
 async function fetchVideos(
   order: "date" | "viewCount",
   count: number
@@ -59,34 +82,51 @@ async function fetchVideos(
   }
 
   try {
-    const channelId = await getChannelId();
-    const res = await fetch(
-      `${YOUTUBE_API_BASE}/search?part=snippet&channelId=${channelId}&order=${order}&type=video&maxResults=${count}&key=${API_KEY}`,
-      { next: { revalidate: 3600 } }
-    );
-    const data = await res.json();
+    // Fetch medium (4–20 min) and long (>20 min) in parallel — this excludes
+    // Shorts at the API level so they never appear in Latest / Most Popular.
+    const [medItems, longItems] = await Promise.all([
+      searchVideos(order, count, "medium"),
+      searchVideos(order, count, "long"),
+    ]);
 
-    if (!data.items) {
-      console.error("YouTube API error:", data);
-      return getPlaceholderVideos(count);
+    // Merge & de-duplicate
+    const seen = new Set<string>();
+    const allItems: SearchItem[] = [];
+    for (const item of [...medItems, ...longItems]) {
+      if (!seen.has(item.id.videoId)) {
+        seen.add(item.id.videoId);
+        allItems.push(item);
+      }
     }
 
-    const ids: string[] = data.items.map((item: { id: { videoId: string } }) => item.id.videoId);
+    // Re-sort by publishedAt for "date" order (merging disrupts sequence)
+    if (order === "date") {
+      allItems.sort(
+        (a, b) =>
+          new Date(b.snippet.publishedAt).getTime() -
+          new Date(a.snippet.publishedAt).getTime()
+      );
+    }
+
+    const topItems = allItems.slice(0, count);
+    if (!topItems.length) return getPlaceholderVideos(count);
+
+    const ids = topItems.map((item) => item.id.videoId);
     const durations = await fetchDurations(ids);
 
-    return data.items.map(
-      (item: { id: { videoId: string }; snippet: { title: string; thumbnails: { high: { url: string } }; publishedAt: string } }) => {
-        const secs = durations[item.id.videoId] ?? 0;
-        return {
-          id: item.id.videoId,
-          title: item.snippet.title,
-          thumbnail: item.snippet.thumbnails.high.url,
-          publishedAt: item.snippet.publishedAt,
-          durationSeconds: secs,
-          isShort: secs > 0 && secs <= SHORTS_MAX_SECONDS,
-        };
-      }
-    );
+    return topItems.map((item) => {
+      const secs = durations[item.id.videoId] ?? 0;
+      return {
+        id: item.id.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.high.url,
+        publishedAt: item.snippet.publishedAt,
+        durationSeconds: secs,
+        // Belt-and-suspenders: API already excluded Shorts, but flag any
+        // that slipped through (e.g. if duration lookup failed)
+        isShort: secs > 0 && secs <= SHORTS_MAX_SECONDS,
+      };
+    });
   } catch (error) {
     console.error("Failed to fetch YouTube videos:", error);
     return getPlaceholderVideos(count);

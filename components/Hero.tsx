@@ -1,6 +1,6 @@
 export default function Hero({ viewCount }: { viewCount?: string }) {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-b from-white via-neutral-50 to-white">
+    <section className="relative min-h-[50vh] flex items-center justify-center bg-gradient-to-b from-white via-neutral-50 to-white">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,169,14,0.1)_0%,_transparent_70%)]" />
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
