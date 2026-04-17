@@ -23,7 +23,8 @@ export default function AboutPage() {
             on the other hand, might break the bank if you&apos;re not careful!
           </p>
           <p>
-            Along the way I also highlight what I&apos;m owning, buying and selling. Check out
+            I also bring you along on my own car adventure...all the cars I&apos;m buying and
+            selling and mostly losing a lot of money in the process! Check out
             the{" "}
             <Link href="/garage" className="text-brand-gold hover:underline font-medium">
               Cars I&apos;ve Owned
