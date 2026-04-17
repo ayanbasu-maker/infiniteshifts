@@ -24,7 +24,11 @@ export default function AboutPage() {
           </p>
           <p>
             Along the way I also highlight what I&apos;m owning, buying and selling. Check out
-            the &ldquo;Cars I&apos;ve Owned&rdquo; section to learn more.
+            the{" "}
+            <Link href="/garage" className="text-brand-gold hover:underline font-medium">
+              Cars I&apos;ve Owned
+            </Link>{" "}
+            section to learn more.
           </p>
           <p>
             If you want to reach out, shoot me a message{" "}
