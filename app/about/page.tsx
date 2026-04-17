@@ -18,9 +18,12 @@ export default function AboutPage() {
           <p>
             I&apos;ve always been obsessed with cars, probably like you, if you&apos;re reading
             this. Not just the exotic stuff you see on posters, but anything that&apos;s fun to
-            drive and interesting. I&apos;m mainly interested in used, heavily depreciated cars
-            where you can find something at a great price without breaking the bank. Maintenance,
-            on the other hand, might break the bank if you&apos;re not careful!
+            drive and interesting.
+          </p>
+          <p>
+            I&apos;m mainly interested in used, heavily depreciated cars where you can find
+            something at a great price without breaking the bank. Maintenance, on the other hand,
+            might break the bank if you&apos;re not careful!
           </p>
           <p>
             I also bring you along on my own car adventure...all the cars I&apos;m buying and
