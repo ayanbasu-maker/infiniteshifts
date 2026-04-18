@@ -7,7 +7,7 @@ export default function Hero({ viewCount }: { viewCount?: string }) {
           INFINITE <span className="text-brand-gold">SHIFTS</span>
         </h1>
         <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-8">
-          Dream cars don&apos;t have to cost a fortune. I find the coolest cars money can buy — at prices most people overlook.
+          Can&apos;t stop thinking or dreaming about cars? You&apos;ve come to the right place!
         </p>
         <a
           href="https://www.youtube.com/@infiniteshifts1"
