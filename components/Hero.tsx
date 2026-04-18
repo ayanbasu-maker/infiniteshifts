@@ -6,9 +6,10 @@ export default function Hero({ viewCount }: { viewCount?: string }) {
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
           INFINITE <span className="text-brand-gold">SHIFTS</span>
         </h1>
-        <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-8">
-          Can&apos;t stop thinking or dreaming about cars? You&apos;ve come to the right place!
-        </p>
+        <div className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-8 space-y-4">
+          <p>Can&apos;t stop thinking, dreaming or talking about cars?</p>
+          <p>You&apos;ve come to the right place!</p>
+        </div>
         <a
           href="https://www.youtube.com/@infiniteshifts1"
           target="_blank"
