@@ -15,7 +15,7 @@ export default function ContactPage() {
         </h1>
         <div className="w-12 h-1 bg-brand-gold rounded mb-4" />
         <p className="text-neutral-400 text-lg mb-10">
-          Have a question, collab idea, or just want to talk cars? Send me a message and I&apos;ll get back to you.
+          Have a question, or just want to talk cars? Drop me a note.
         </p>
         <ContactForm />
       </div>
