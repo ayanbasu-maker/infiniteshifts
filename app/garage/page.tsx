@@ -87,7 +87,7 @@ const vehicles: GarageVehicle[] = [
     description: "Still in the garage. Fantastic car. Will I sell it? Honestly not sure yet.",
   },
   {
-    name: "2021 Tesla Model S",
+    name: "2021 Tesla Model S Plaid",
     image: "/garage/teslamodelsplaid.png",
     status: "sold",
     bought: 71000,
